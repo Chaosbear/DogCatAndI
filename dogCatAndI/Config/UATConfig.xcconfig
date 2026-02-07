@@ -1,0 +1,17 @@
+//
+//  UATConfig.xcconfig
+//  dogCatAndI
+//
+//  Created by Sukrit Chatmeeboon on 7/2/2569 BE.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+// Environment
+APP_ENV = prod
+
+// Base URL
+DOG_URL = https:/$()/dog.ceo
+CAT_URL = https:/$()/catfact.ninja
+ME_URL = https:/$()/randomuser.me

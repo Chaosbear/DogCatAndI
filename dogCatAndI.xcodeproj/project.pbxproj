@@ -6,6 +6,59 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		96A3B0F82F36E03200B4EF9B /* DSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B0F72F36E02F00B4EF9B /* DSFont.swift */; };
+		96A3B0FA2F36E03E00B4EF9B /* DSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B0F92F36E03B00B4EF9B /* DSColor.swift */; };
+		96A3B0FF2F36E13300B4EF9B /* TextStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B0FE2F36E13200B4EF9B /* TextStyler.swift */; };
+		96A3B1022F36E2A200B4EF9B /* SwiftUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B1012F36E29A00B4EF9B /* SwiftUIViewExtension.swift */; };
+		96A3B1042F36E2B600B4EF9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B1032F36E2A900B4EF9B /* Utils.swift */; };
+		96A3B1062F36E3F700B4EF9B /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B1052F36E3F600B4EF9B /* NetworkMonitor.swift */; };
+		96A3B1082F36E4C100B4EF9B /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B1072F36E4BD00B4EF9B /* FontExtension.swift */; };
+		96A3B10A2F36E99A00B4EF9B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3B1092F36E99400B4EF9B /* AppConfig.swift */; };
+		96A3B10D2F36EA3300B4EF9B /* ProdConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96A3B10C2F36EA3300B4EF9B /* ProdConfig.xcconfig */; };
+		96A3B10F2F36EA4700B4EF9B /* UATConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */; };
+		96A3B1112F36EA5C00B4EF9B /* DevConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */; };
+		96AF22682F3655E2002C410D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22432F3655E2002C410D /* NetworkService.swift */; };
+		96AF22692F3655E2002C410D /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22452F3655E2002C410D /* LoadingOverlay.swift */; };
+		96AF226A2F3655E2002C410D /* CatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22482F3655E2002C410D /* CatsInteractor.swift */; };
+		96AF226B2F3655E2002C410D /* CatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22492F3655E2002C410D /* CatsModels.swift */; };
+		96AF226C2F3655E2002C410D /* CatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224A2F3655E2002C410D /* CatsPresenter.swift */; };
+		96AF226D2F3655E2002C410D /* CatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224B2F3655E2002C410D /* CatsView.swift */; };
+		96AF226E2F3655E2002C410D /* CatsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224C2F3655E2002C410D /* CatsWorker.swift */; };
+		96AF226F2F3655E2002C410D /* DogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224E2F3655E2002C410D /* DogsInteractor.swift */; };
+		96AF22702F3655E2002C410D /* DogsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224F2F3655E2002C410D /* DogsModels.swift */; };
+		96AF22712F3655E2002C410D /* DogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22502F3655E2002C410D /* DogsPresenter.swift */; };
+		96AF22722F3655E2002C410D /* DogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22512F3655E2002C410D /* DogsView.swift */; };
+		96AF22732F3655E2002C410D /* DogsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22522F3655E2002C410D /* DogsWorker.swift */; };
+		96AF22742F3655E2002C410D /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22542F3655E2002C410D /* AppContainer.swift */; };
+		96AF22752F3655E2002C410D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22552F3655E2002C410D /* MainTabView.swift */; };
+		96AF22762F3655E2002C410D /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22572F3655E2002C410D /* MeInteractor.swift */; };
+		96AF22772F3655E2002C410D /* MeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22582F3655E2002C410D /* MeModels.swift */; };
+		96AF22782F3655E2002C410D /* MePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22592F3655E2002C410D /* MePresenter.swift */; };
+		96AF22792F3655E2002C410D /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF225A2F3655E2002C410D /* MeView.swift */; };
+		96AF227A2F3655E2002C410D /* MeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF225B2F3655E2002C410D /* MeWorker.swift */; };
+		96AF227B2F3655E2002C410D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF225E2F3655E2002C410D /* AppDelegate.swift */; };
+		96AF227C2F3655E2002C410D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22652F3655E2002C410D /* SceneDelegate.swift */; };
+		96AF227E2F3655E2002C410D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AF225F2F3655E2002C410D /* Assets.xcassets */; };
+		96AF22802F3655E2002C410D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96AF22622F3655E2002C410D /* LaunchScreen.storyboard */; };
+		96AF22902F3655E5002C410D /* MockCatsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22822F3655E5002C410D /* MockCatsWorker.swift */; };
+		96AF22912F3655E5002C410D /* MockDogsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22832F3655E5002C410D /* MockDogsWorker.swift */; };
+		96AF22922F3655E5002C410D /* MockMeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22842F3655E5002C410D /* MockMeWorker.swift */; };
+		96AF22932F3655E5002C410D /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22852F3655E5002C410D /* MockNetworkService.swift */; };
+		96AF22942F3655E5002C410D /* MockPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22862F3655E5002C410D /* MockPresenters.swift */; };
+		96AF22952F3655E5002C410D /* CatsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22882F3655E5002C410D /* CatsInteractorTests.swift */; };
+		96AF22962F3655E5002C410D /* CatsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22892F3655E5002C410D /* CatsPresenterTests.swift */; };
+		96AF22972F3655E5002C410D /* dogCatAndITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228A2F3655E5002C410D /* dogCatAndITests.swift */; };
+		96AF22982F3655E5002C410D /* DogsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */; };
+		96AF22992F3655E5002C410D /* DogsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */; };
+		96AF229A2F3655E5002C410D /* MeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228D2F3655E5002C410D /* MeInteractorTests.swift */; };
+		96AF229B2F3655E5002C410D /* MePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228E2F3655E5002C410D /* MePresenterTests.swift */; };
+		96AF229F2F3655EA002C410D /* dogCatAndIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */; };
+		96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */; };
+		96AF22B92F365F0F002C410D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22B82F365F0F002C410D /* Alamofire */; };
+		96AF22BC2F365F30002C410D /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22BB2F365F30002C410D /* netfox */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		966C7E802F35FBF700382491 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,44 +80,64 @@
 		966C7E692F35FBF500382491 /* dogCatAndI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dogCatAndI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		966C7E7F2F35FBF700382491 /* dogCatAndITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dogCatAndITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		966C7E892F35FBF700382491 /* dogCatAndIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dogCatAndIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A3B0F72F36E02F00B4EF9B /* DSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFont.swift; sourceTree = "<group>"; };
+		96A3B0F92F36E03B00B4EF9B /* DSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColor.swift; sourceTree = "<group>"; };
+		96A3B0FE2F36E13200B4EF9B /* TextStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyler.swift; sourceTree = "<group>"; };
+		96A3B1012F36E29A00B4EF9B /* SwiftUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewExtension.swift; sourceTree = "<group>"; };
+		96A3B1032F36E2A900B4EF9B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		96A3B1052F36E3F600B4EF9B /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		96A3B1072F36E4BD00B4EF9B /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		96A3B1092F36E99400B4EF9B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		96A3B10C2F36EA3300B4EF9B /* ProdConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProdConfig.xcconfig; sourceTree = "<group>"; };
+		96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UATConfig.xcconfig; sourceTree = "<group>"; };
+		96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevConfig.xcconfig; sourceTree = "<group>"; };
+		96AF22432F3655E2002C410D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		96AF22452F3655E2002C410D /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		96AF22482F3655E2002C410D /* CatsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsInteractor.swift; sourceTree = "<group>"; };
+		96AF22492F3655E2002C410D /* CatsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModels.swift; sourceTree = "<group>"; };
+		96AF224A2F3655E2002C410D /* CatsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsPresenter.swift; sourceTree = "<group>"; };
+		96AF224B2F3655E2002C410D /* CatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsView.swift; sourceTree = "<group>"; };
+		96AF224C2F3655E2002C410D /* CatsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsWorker.swift; sourceTree = "<group>"; };
+		96AF224E2F3655E2002C410D /* DogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractor.swift; sourceTree = "<group>"; };
+		96AF224F2F3655E2002C410D /* DogsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsModels.swift; sourceTree = "<group>"; };
+		96AF22502F3655E2002C410D /* DogsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsPresenter.swift; sourceTree = "<group>"; };
+		96AF22512F3655E2002C410D /* DogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsView.swift; sourceTree = "<group>"; };
+		96AF22522F3655E2002C410D /* DogsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsWorker.swift; sourceTree = "<group>"; };
+		96AF22542F3655E2002C410D /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		96AF22552F3655E2002C410D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		96AF22572F3655E2002C410D /* MeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractor.swift; sourceTree = "<group>"; };
+		96AF22582F3655E2002C410D /* MeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModels.swift; sourceTree = "<group>"; };
+		96AF22592F3655E2002C410D /* MePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePresenter.swift; sourceTree = "<group>"; };
+		96AF225A2F3655E2002C410D /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		96AF225B2F3655E2002C410D /* MeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeWorker.swift; sourceTree = "<group>"; };
+		96AF225E2F3655E2002C410D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96AF225F2F3655E2002C410D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96AF22602F3655E2002C410D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96AF22612F3655E2002C410D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96AF22652F3655E2002C410D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		96AF22822F3655E5002C410D /* MockCatsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCatsWorker.swift; sourceTree = "<group>"; };
+		96AF22832F3655E5002C410D /* MockDogsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDogsWorker.swift; sourceTree = "<group>"; };
+		96AF22842F3655E5002C410D /* MockMeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeWorker.swift; sourceTree = "<group>"; };
+		96AF22852F3655E5002C410D /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		96AF22862F3655E5002C410D /* MockPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresenters.swift; sourceTree = "<group>"; };
+		96AF22882F3655E5002C410D /* CatsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsInteractorTests.swift; sourceTree = "<group>"; };
+		96AF22892F3655E5002C410D /* CatsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsPresenterTests.swift; sourceTree = "<group>"; };
+		96AF228A2F3655E5002C410D /* dogCatAndITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndITests.swift; sourceTree = "<group>"; };
+		96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractorTests.swift; sourceTree = "<group>"; };
+		96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsPresenterTests.swift; sourceTree = "<group>"; };
+		96AF228D2F3655E5002C410D /* MeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractorTests.swift; sourceTree = "<group>"; };
+		96AF228E2F3655E5002C410D /* MePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePresenterTests.swift; sourceTree = "<group>"; };
+		96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITests.swift; sourceTree = "<group>"; };
+		96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		966C7E912F35FBF700382491 /* Exceptions for "dogCatAndI" folder in "dogCatAndI" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 966C7E682F35FBF500382491 /* dogCatAndI */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		966C7E6B2F35FBF500382491 /* dogCatAndI */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				966C7E912F35FBF700382491 /* Exceptions for "dogCatAndI" folder in "dogCatAndI" target */,
-			);
-			path = dogCatAndI;
-			sourceTree = "<group>";
-		};
-		966C7E822F35FBF700382491 /* dogCatAndITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = dogCatAndITests;
-			sourceTree = "<group>";
-		};
-		966C7E8C2F35FBF700382491 /* dogCatAndIUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = dogCatAndIUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		966C7E662F35FBF500382491 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AF22BC2F365F30002C410D /* netfox in Frameworks */,
+				96AF22B92F365F0F002C410D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +161,9 @@
 		966C7E602F35FBF500382491 = {
 			isa = PBXGroup;
 			children = (
-				966C7E6B2F35FBF500382491 /* dogCatAndI */,
-				966C7E822F35FBF700382491 /* dogCatAndITests */,
-				966C7E8C2F35FBF700382491 /* dogCatAndIUITests */,
+				96AF22672F3655E2002C410D /* dogCatAndI */,
+				96AF228F2F3655E5002C410D /* dogCatAndITests */,
+				96AF229E2F3655EA002C410D /* dogCatAndIUITests */,
 				966C7E6A2F35FBF500382491 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +176,212 @@
 				966C7E892F35FBF700382491 /* dogCatAndIUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		96A3B0F62F36E02500B4EF9B /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B0F92F36E03B00B4EF9B /* DSColor.swift */,
+				96A3B0F72F36E02F00B4EF9B /* DSFont.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		96A3B0FB2F36E10400B4EF9B /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B0FD2F36E12700B4EF9B /* TextStyler */,
+				96A3B0FC2F36E11D00B4EF9B /* LoadingView */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		96A3B0FC2F36E11D00B4EF9B /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22452F3655E2002C410D /* LoadingOverlay.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		96A3B0FD2F36E12700B4EF9B /* TextStyler */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B0FE2F36E13200B4EF9B /* TextStyler.swift */,
+			);
+			path = TextStyler;
+			sourceTree = "<group>";
+		};
+		96A3B1002F36E29200B4EF9B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B1072F36E4BD00B4EF9B /* FontExtension.swift */,
+				96A3B1012F36E29A00B4EF9B /* SwiftUIViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		96A3B10B2F36EA0A00B4EF9B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B1092F36E99400B4EF9B /* AppConfig.swift */,
+				96A3B10C2F36EA3300B4EF9B /* ProdConfig.xcconfig */,
+				96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */,
+				96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		96A3B1222F36F9CA00B4EF9B /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				96AF224C2F3655E2002C410D /* CatsWorker.swift */,
+				96AF22522F3655E2002C410D /* DogsWorker.swift */,
+				96AF225B2F3655E2002C410D /* MeWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		96A3B1232F36F9DD00B4EF9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22492F3655E2002C410D /* CatsModels.swift */,
+				96AF224F2F3655E2002C410D /* DogsModels.swift */,
+				96AF22582F3655E2002C410D /* MeModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96AF22442F3655E2002C410D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B1052F36E3F600B4EF9B /* NetworkMonitor.swift */,
+				96AF22432F3655E2002C410D /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		96AF22472F3655E2002C410D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B0F62F36E02500B4EF9B /* DesignSystem */,
+				96A3B1002F36E29200B4EF9B /* Extension */,
+				96A3B1232F36F9DD00B4EF9B /* Model */,
+				96AF22442F3655E2002C410D /* Network */,
+				96A3B0FB2F36E10400B4EF9B /* UIComponent */,
+				96AF22BD2F3663FF002C410D /* Utility */,
+				96A3B1222F36F9CA00B4EF9B /* Worker */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		96AF224D2F3655E2002C410D /* Cats */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22482F3655E2002C410D /* CatsInteractor.swift */,
+				96AF224A2F3655E2002C410D /* CatsPresenter.swift */,
+				96AF224B2F3655E2002C410D /* CatsView.swift */,
+			);
+			path = Cats;
+			sourceTree = "<group>";
+		};
+		96AF22532F3655E2002C410D /* Dogs */ = {
+			isa = PBXGroup;
+			children = (
+				96AF224E2F3655E2002C410D /* DogsInteractor.swift */,
+				96AF22502F3655E2002C410D /* DogsPresenter.swift */,
+				96AF22512F3655E2002C410D /* DogsView.swift */,
+			);
+			path = Dogs;
+			sourceTree = "<group>";
+		};
+		96AF22562F3655E2002C410D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22542F3655E2002C410D /* AppContainer.swift */,
+				96AF22552F3655E2002C410D /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		96AF225C2F3655E2002C410D /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22572F3655E2002C410D /* MeInteractor.swift */,
+				96AF22592F3655E2002C410D /* MePresenter.swift */,
+				96AF225A2F3655E2002C410D /* MeView.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		96AF225D2F3655E2002C410D /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				96AF224D2F3655E2002C410D /* Cats */,
+				96AF22532F3655E2002C410D /* Dogs */,
+				96AF22562F3655E2002C410D /* Main */,
+				96AF225C2F3655E2002C410D /* Me */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		96AF22672F3655E2002C410D /* dogCatAndI */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B10B2F36EA0A00B4EF9B /* Config */,
+				96AF225E2F3655E2002C410D /* AppDelegate.swift */,
+				96AF22652F3655E2002C410D /* SceneDelegate.swift */,
+				96AF22622F3655E2002C410D /* LaunchScreen.storyboard */,
+				96AF22472F3655E2002C410D /* Core */,
+				96AF225D2F3655E2002C410D /* Feature */,
+				96AF22602F3655E2002C410D /* Info.plist */,
+				96AF225F2F3655E2002C410D /* Assets.xcassets */,
+			);
+			path = dogCatAndI;
+			sourceTree = "<group>";
+		};
+		96AF22872F3655E5002C410D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22822F3655E5002C410D /* MockCatsWorker.swift */,
+				96AF22832F3655E5002C410D /* MockDogsWorker.swift */,
+				96AF22842F3655E5002C410D /* MockMeWorker.swift */,
+				96AF22852F3655E5002C410D /* MockNetworkService.swift */,
+				96AF22862F3655E5002C410D /* MockPresenters.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		96AF228F2F3655E5002C410D /* dogCatAndITests */ = {
+			isa = PBXGroup;
+			children = (
+				96AF22872F3655E5002C410D /* Mocks */,
+				96AF22882F3655E5002C410D /* CatsInteractorTests.swift */,
+				96AF22892F3655E5002C410D /* CatsPresenterTests.swift */,
+				96AF228A2F3655E5002C410D /* dogCatAndITests.swift */,
+				96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */,
+				96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */,
+				96AF228D2F3655E5002C410D /* MeInteractorTests.swift */,
+				96AF228E2F3655E5002C410D /* MePresenterTests.swift */,
+			);
+			path = dogCatAndITests;
+			sourceTree = "<group>";
+		};
+		96AF229E2F3655EA002C410D /* dogCatAndIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */,
+				96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */,
+			);
+			path = dogCatAndIUITests;
+			sourceTree = "<group>";
+		};
+		96AF22BD2F3663FF002C410D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				96A3B1032F36E2A900B4EF9B /* Utils.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,11 +399,10 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				966C7E6B2F35FBF500382491 /* dogCatAndI */,
-			);
 			name = dogCatAndI;
 			packageProductDependencies = (
+				96AF22B82F365F0F002C410D /* Alamofire */,
+				96AF22BB2F365F30002C410D /* netfox */,
 			);
 			productName = dogCatAndI;
 			productReference = 966C7E692F35FBF500382491 /* dogCatAndI.app */;
@@ -142,9 +420,6 @@
 			);
 			dependencies = (
 				966C7E812F35FBF700382491 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				966C7E822F35FBF700382491 /* dogCatAndITests */,
 			);
 			name = dogCatAndITests;
 			packageProductDependencies = (
@@ -165,9 +440,6 @@
 			);
 			dependencies = (
 				966C7E8B2F35FBF700382491 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				966C7E8C2F35FBF700382491 /* dogCatAndIUITests */,
 			);
 			name = dogCatAndIUITests;
 			packageProductDependencies = (
@@ -208,6 +480,10 @@
 			);
 			mainGroup = 966C7E602F35FBF500382491;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				96AF22B72F365F0F002C410D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				96AF22BA2F365F30002C410D /* XCRemoteSwiftPackageReference "netfox" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 966C7E6A2F35FBF500382491 /* Products */;
 			projectDirPath = "";
@@ -225,6 +501,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AF227E2F3655E2002C410D /* Assets.xcassets in Resources */,
+				96A3B1112F36EA5C00B4EF9B /* DevConfig.xcconfig in Resources */,
+				96A3B10F2F36EA4700B4EF9B /* UATConfig.xcconfig in Resources */,
+				96A3B10D2F36EA3300B4EF9B /* ProdConfig.xcconfig in Resources */,
+				96AF22802F3655E2002C410D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +530,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AF22682F3655E2002C410D /* NetworkService.swift in Sources */,
+				96A3B1022F36E2A200B4EF9B /* SwiftUIViewExtension.swift in Sources */,
+				96A3B1082F36E4C100B4EF9B /* FontExtension.swift in Sources */,
+				96AF22692F3655E2002C410D /* LoadingOverlay.swift in Sources */,
+				96AF226A2F3655E2002C410D /* CatsInteractor.swift in Sources */,
+				96A3B0FF2F36E13300B4EF9B /* TextStyler.swift in Sources */,
+				96A3B1042F36E2B600B4EF9B /* Utils.swift in Sources */,
+				96A3B10A2F36E99A00B4EF9B /* AppConfig.swift in Sources */,
+				96A3B0FA2F36E03E00B4EF9B /* DSColor.swift in Sources */,
+				96A3B1062F36E3F700B4EF9B /* NetworkMonitor.swift in Sources */,
+				96AF226B2F3655E2002C410D /* CatsModels.swift in Sources */,
+				96AF226C2F3655E2002C410D /* CatsPresenter.swift in Sources */,
+				96AF226D2F3655E2002C410D /* CatsView.swift in Sources */,
+				96AF226E2F3655E2002C410D /* CatsWorker.swift in Sources */,
+				96A3B0F82F36E03200B4EF9B /* DSFont.swift in Sources */,
+				96AF226F2F3655E2002C410D /* DogsInteractor.swift in Sources */,
+				96AF22702F3655E2002C410D /* DogsModels.swift in Sources */,
+				96AF22712F3655E2002C410D /* DogsPresenter.swift in Sources */,
+				96AF22722F3655E2002C410D /* DogsView.swift in Sources */,
+				96AF22732F3655E2002C410D /* DogsWorker.swift in Sources */,
+				96AF22742F3655E2002C410D /* AppContainer.swift in Sources */,
+				96AF22752F3655E2002C410D /* MainTabView.swift in Sources */,
+				96AF22762F3655E2002C410D /* MeInteractor.swift in Sources */,
+				96AF22772F3655E2002C410D /* MeModels.swift in Sources */,
+				96AF22782F3655E2002C410D /* MePresenter.swift in Sources */,
+				96AF22792F3655E2002C410D /* MeView.swift in Sources */,
+				96AF227A2F3655E2002C410D /* MeWorker.swift in Sources */,
+				96AF227B2F3655E2002C410D /* AppDelegate.swift in Sources */,
+				96AF227C2F3655E2002C410D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +566,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AF22902F3655E5002C410D /* MockCatsWorker.swift in Sources */,
+				96AF22912F3655E5002C410D /* MockDogsWorker.swift in Sources */,
+				96AF22922F3655E5002C410D /* MockMeWorker.swift in Sources */,
+				96AF22932F3655E5002C410D /* MockNetworkService.swift in Sources */,
+				96AF22942F3655E5002C410D /* MockPresenters.swift in Sources */,
+				96AF22952F3655E5002C410D /* CatsInteractorTests.swift in Sources */,
+				96AF22962F3655E5002C410D /* CatsPresenterTests.swift in Sources */,
+				96AF22972F3655E5002C410D /* dogCatAndITests.swift in Sources */,
+				96AF22982F3655E5002C410D /* DogsInteractorTests.swift in Sources */,
+				96AF22992F3655E5002C410D /* DogsPresenterTests.swift in Sources */,
+				96AF229A2F3655E5002C410D /* MeInteractorTests.swift in Sources */,
+				96AF229B2F3655E5002C410D /* MePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +585,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AF229F2F3655EA002C410D /* dogCatAndIUITests.swift in Sources */,
+				96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +605,17 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		96AF22622F3655E2002C410D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96AF22612F3655E2002C410D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		966C7E932F35FBF700382491 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -292,11 +627,13 @@
 				DEVELOPMENT_TEAM = 9JR855JWZY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,11 +661,13 @@
 				DEVELOPMENT_TEAM = 9JR855JWZY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,6 +687,7 @@
 		};
 		966C7E952F35FBF700382491 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B10C2F36EA3300B4EF9B /* ProdConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -407,11 +747,13 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
 		966C7E962F35FBF700382491 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B10C2F36EA3300B4EF9B /* ProdConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -463,6 +805,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -551,6 +894,560 @@
 			};
 			name = Release;
 		};
+		96A3B1122F36ED1400B4EF9B /* DebugUAT */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = DebugUAT;
+		};
+		96A3B1132F36ED1400B4EF9B /* DebugUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = DebugUAT;
+		};
+		96A3B1142F36ED1400B4EF9B /* DebugUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogCatAndI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dogCatAndI";
+			};
+			name = DebugUAT;
+		};
+		96A3B1152F36ED1400B4EF9B /* DebugUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogCatAndI;
+			};
+			name = DebugUAT;
+		};
+		96A3B1162F36ED2000B4EF9B /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = DebugDev;
+		};
+		96A3B1172F36ED2000B4EF9B /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = DebugDev;
+		};
+		96A3B1182F36ED2000B4EF9B /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogCatAndI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dogCatAndI";
+			};
+			name = DebugDev;
+		};
+		96A3B1192F36ED2000B4EF9B /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogCatAndI;
+			};
+			name = DebugDev;
+		};
+		96A3B11A2F36ED2900B4EF9B /* ReleaseUAT */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ReleaseUAT;
+		};
+		96A3B11B2F36ED2900B4EF9B /* ReleaseUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = ReleaseUAT;
+		};
+		96A3B11C2F36ED2900B4EF9B /* ReleaseUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogCatAndI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dogCatAndI";
+			};
+			name = ReleaseUAT;
+		};
+		96A3B11D2F36ED2900B4EF9B /* ReleaseUAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogCatAndI;
+			};
+			name = ReleaseUAT;
+		};
+		96A3B11E2F36ED3000B4EF9B /* ReleaseDev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = ReleaseDev;
+		};
+		96A3B11F2F36ED3000B4EF9B /* ReleaseDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dogCatAndI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dog + Cat & I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = ReleaseDev;
+		};
+		96A3B1202F36ED3000B4EF9B /* ReleaseDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogCatAndI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dogCatAndI";
+			};
+			name = ReleaseDev;
+		};
+		96A3B1212F36ED3000B4EF9B /* ReleaseDev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR855JWZY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dogCatAndIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogCatAndI;
+			};
+			name = ReleaseDev;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -558,7 +1455,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				966C7E952F35FBF700382491 /* Debug */,
+				96A3B1122F36ED1400B4EF9B /* DebugUAT */,
+				96A3B1162F36ED2000B4EF9B /* DebugDev */,
 				966C7E962F35FBF700382491 /* Release */,
+				96A3B11A2F36ED2900B4EF9B /* ReleaseUAT */,
+				96A3B11E2F36ED3000B4EF9B /* ReleaseDev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -567,7 +1468,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				966C7E932F35FBF700382491 /* Debug */,
+				96A3B1132F36ED1400B4EF9B /* DebugUAT */,
+				96A3B1172F36ED2000B4EF9B /* DebugDev */,
 				966C7E942F35FBF700382491 /* Release */,
+				96A3B11B2F36ED2900B4EF9B /* ReleaseUAT */,
+				96A3B11F2F36ED3000B4EF9B /* ReleaseDev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -576,7 +1481,11 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				966C7E982F35FBF700382491 /* Debug */,
+				96A3B1142F36ED1400B4EF9B /* DebugUAT */,
+				96A3B1182F36ED2000B4EF9B /* DebugDev */,
 				966C7E992F35FBF700382491 /* Release */,
+				96A3B11C2F36ED2900B4EF9B /* ReleaseUAT */,
+				96A3B1202F36ED3000B4EF9B /* ReleaseDev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -585,12 +1494,48 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				966C7E9B2F35FBF700382491 /* Debug */,
+				96A3B1152F36ED1400B4EF9B /* DebugUAT */,
+				96A3B1192F36ED2000B4EF9B /* DebugDev */,
 				966C7E9C2F35FBF700382491 /* Release */,
+				96A3B11D2F36ED2900B4EF9B /* ReleaseUAT */,
+				96A3B1212F36ED3000B4EF9B /* ReleaseDev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96AF22B72F365F0F002C410D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+		96AF22BA2F365F30002C410D /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96AF22B82F365F0F002C410D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96AF22B72F365F0F002C410D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		96AF22BB2F365F30002C410D /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96AF22BA2F365F30002C410D /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 966C7E612F35FBF500382491 /* Project object */;
 }
