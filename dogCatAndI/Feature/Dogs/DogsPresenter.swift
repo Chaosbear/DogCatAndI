@@ -7,18 +7,15 @@
 
 import Foundation
 
-// MARK: - Dogs Presentation Logic
-
 protocol DogsPresentationLogic: AnyObject {
     func presentDogs(response: Dogs.FetchDogs.Response)
     func presentLoading(_ isLoading: Bool)
     func presentErrorState(_ state: ErrorViewStateModel)
+    func setCurrentLoadType(loadType: Dogs.FetchDogs.Request.LoadType)
 }
 
-// MARK: - Dogs Presenter
-
 class DogsPresenter: DogsPresentationLogic {
-    weak var viewState: DogsViewState?
+    private var viewState: DogsViewState?
 
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -26,8 +23,8 @@ class DogsPresenter: DogsPresentationLogic {
         return formatter
     }()
 
-    init(store: DogsViewState) {
-        self.viewState = store
+    init(viewState: DogsViewState) {
+        self.viewState = viewState
     }
 
     func presentDogs(response: Dogs.FetchDogs.Response) {
@@ -54,5 +51,9 @@ class DogsPresenter: DogsPresentationLogic {
         if viewState?.errorState != state {
             viewState?.errorState = state
         }
+    }
+
+    func setCurrentLoadType(loadType: Dogs.FetchDogs.Request.LoadType) {
+        viewState?.currentLoadType = loadType
     }
 }

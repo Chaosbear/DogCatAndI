@@ -37,7 +37,6 @@
 		96A3B1362F37009400B4EF9B /* TrailingElementsModule in Frameworks */ = {isa = PBXBuildFile; productRef = 96A3B1352F37009400B4EF9B /* TrailingElementsModule */; };
 		96A3B1382F37009400B4EF9B /* _RopeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 96A3B1372F37009400B4EF9B /* _RopeModule */; };
 		96AF22682F3655E2002C410D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22432F3655E2002C410D /* NetworkService.swift */; };
-		96AF22692F3655E2002C410D /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22452F3655E2002C410D /* LoadingOverlay.swift */; };
 		96AF226A2F3655E2002C410D /* CatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22482F3655E2002C410D /* CatsInteractor.swift */; };
 		96AF226B2F3655E2002C410D /* CatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22492F3655E2002C410D /* CatsModels.swift */; };
 		96AF226C2F3655E2002C410D /* CatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF224A2F3655E2002C410D /* CatsPresenter.swift */; };
@@ -75,6 +74,11 @@
 		96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */; };
 		96AF22B92F365F0F002C410D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22B82F365F0F002C410D /* Alamofire */; };
 		96AF22BC2F365F30002C410D /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22BB2F365F30002C410D /* netfox */; };
+		96FFC4932F38EAEE00A69B48 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */; };
+		96FFC4952F38F6A900A69B48 /* CatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4942F38F6A500A69B48 /* CatCardView.swift */; };
+		96FFC4982F38FEA200A69B48 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4972F38FE9E00A69B48 /* DividerView.swift */; };
+		96FFC49A2F39185D00A69B48 /* SwiftUITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */; };
+		96FFC49C2F3922C200A69B48 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC49B2F3922BC00A69B48 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +122,6 @@
 		96A3B10E2F36EA4700B4EF9B /* UATConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UATConfig.xcconfig; sourceTree = "<group>"; };
 		96A3B1102F36EA5C00B4EF9B /* DevConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevConfig.xcconfig; sourceTree = "<group>"; };
 		96AF22432F3655E2002C410D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		96AF22452F3655E2002C410D /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		96AF22482F3655E2002C410D /* CatsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsInteractor.swift; sourceTree = "<group>"; };
 		96AF22492F3655E2002C410D /* CatsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModels.swift; sourceTree = "<group>"; };
 		96AF224A2F3655E2002C410D /* CatsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsPresenter.swift; sourceTree = "<group>"; };
@@ -155,6 +158,11 @@
 		96AF228E2F3655E5002C410D /* MePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePresenterTests.swift; sourceTree = "<group>"; };
 		96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITests.swift; sourceTree = "<group>"; };
 		96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		96FFC4942F38F6A500A69B48 /* CatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCardView.swift; sourceTree = "<group>"; };
+		96FFC4972F38FE9E00A69B48 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextExtension.swift; sourceTree = "<group>"; };
+		96FFC49B2F3922BC00A69B48 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,21 +259,14 @@
 		96A3B0FB2F36E10400B4EF9B /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				96FFC4962F38FE9800A69B48 /* DividerView */,
+				96FFC4912F38EAE300A69B48 /* SkeletonView */,
 				966F38C22F38A2F600E7F600 /* ErrorView */,
 				966F38BF2F389DE500E7F600 /* Shimmer */,
 				966F38B62F387FBC00E7F600 /* MenuBarView */,
 				96A3B0FD2F36E12700B4EF9B /* TextStyler */,
-				96A3B0FC2F36E11D00B4EF9B /* LoadingView */,
 			);
 			path = UIComponent;
-			sourceTree = "<group>";
-		};
-		96A3B0FC2F36E11D00B4EF9B /* LoadingView */ = {
-			isa = PBXGroup;
-			children = (
-				96AF22452F3655E2002C410D /* LoadingOverlay.swift */,
-			);
-			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		96A3B0FD2F36E12700B4EF9B /* TextStyler */ = {
@@ -279,6 +280,8 @@
 		96A3B1002F36E29200B4EF9B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				96FFC49B2F3922BC00A69B48 /* StringExtension.swift */,
+				96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */,
 				966F38BD2F3880EB00E7F600 /* ColorExtension.swift */,
 				966F38BB2F38808800E7F600 /* UIDeviceExtension.swift */,
 				96A3B1072F36E4BD00B4EF9B /* FontExtension.swift */,
@@ -345,6 +348,7 @@
 		96AF224D2F3655E2002C410D /* Cats */ = {
 			isa = PBXGroup;
 			children = (
+				96FFC4942F38F6A500A69B48 /* CatCardView.swift */,
 				96AF22482F3655E2002C410D /* CatsInteractor.swift */,
 				96AF224A2F3655E2002C410D /* CatsPresenter.swift */,
 				96AF224B2F3655E2002C410D /* CatsView.swift */,
@@ -450,6 +454,22 @@
 				96A3B1032F36E2A900B4EF9B /* Utils.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		96FFC4912F38EAE300A69B48 /* SkeletonView */ = {
+			isa = PBXGroup;
+			children = (
+				96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */,
+			);
+			path = SkeletonView;
+			sourceTree = "<group>";
+		};
+		96FFC4962F38FE9800A69B48 /* DividerView */ = {
+			isa = PBXGroup;
+			children = (
+				96FFC4972F38FE9E00A69B48 /* DividerView.swift */,
+			);
+			path = DividerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,13 +631,15 @@
 			files = (
 				96AF22682F3655E2002C410D /* NetworkService.swift in Sources */,
 				96A3B1022F36E2A200B4EF9B /* SwiftUIViewExtension.swift in Sources */,
+				96FFC4932F38EAEE00A69B48 /* SkeletonView.swift in Sources */,
 				966F38B82F387FD100E7F600 /* NavBarView.swift in Sources */,
 				966F38BE2F3880F000E7F600 /* ColorExtension.swift in Sources */,
 				96A3B1082F36E4C100B4EF9B /* FontExtension.swift in Sources */,
-				96AF22692F3655E2002C410D /* LoadingOverlay.swift in Sources */,
 				96AF226A2F3655E2002C410D /* CatsInteractor.swift in Sources */,
+				96FFC4952F38F6A900A69B48 /* CatCardView.swift in Sources */,
 				96A3B0FF2F36E13300B4EF9B /* TextStyler.swift in Sources */,
 				96A3B1042F36E2B600B4EF9B /* Utils.swift in Sources */,
+				96FFC49A2F39185D00A69B48 /* SwiftUITextExtension.swift in Sources */,
 				96A3B10A2F36E99A00B4EF9B /* AppConfig.swift in Sources */,
 				96A3B0FA2F36E03E00B4EF9B /* DSColor.swift in Sources */,
 				96A3B1062F36E3F700B4EF9B /* NetworkMonitor.swift in Sources */,
@@ -633,6 +655,7 @@
 				966F38C42F38A2FF00E7F600 /* ErrorView.swift in Sources */,
 				96AF22722F3655E2002C410D /* DogsView.swift in Sources */,
 				966F38BA2F387FE200E7F600 /* CustomTabBarView.swift in Sources */,
+				96FFC4982F38FEA200A69B48 /* DividerView.swift in Sources */,
 				96AF22732F3655E2002C410D /* DogsWorker.swift in Sources */,
 				96AF22742F3655E2002C410D /* AppContainer.swift in Sources */,
 				96AF22752F3655E2002C410D /* RootView.swift in Sources */,
@@ -643,6 +666,7 @@
 				967792042F37956600BF6868 /* DogCardView.swift in Sources */,
 				96AF22792F3655E2002C410D /* MeView.swift in Sources */,
 				96AF227A2F3655E2002C410D /* MeWorker.swift in Sources */,
+				96FFC49C2F3922C200A69B48 /* StringExtension.swift in Sources */,
 				966F38C12F389E0500E7F600 /* Shimmer.swift in Sources */,
 				96AF227B2F3655E2002C410D /* AppDelegate.swift in Sources */,
 				96AF227C2F3655E2002C410D /* SceneDelegate.swift in Sources */,

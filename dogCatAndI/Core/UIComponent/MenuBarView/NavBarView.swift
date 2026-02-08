@@ -54,6 +54,7 @@ struct CustomNavBarView<Leading, Trailing>: View where Leading: View, Trailing: 
                     Image("ic_chevron_left")
                         .resizable()
                         .renderingMode(.template)
+                        .scaledToFit()
                         .frame(width: isPhone ? 24 : 28, height: isPhone ? 24 : 28)
                         .foregroundStyle(Color(DSColor.primaryWhite))
                         .padding(8)

@@ -10,7 +10,7 @@ import Alamofire
 
 // MARK: - Cats Worker Protocol
 protocol CatsWorkerProtocol {
-    func fetchCatBreeds() async throws -> CatBreedsAPIResponse
+    func fetchCatBreeds(page: Int) async throws -> CatBreedsAPIResponse
 }
 
 // MARK: - Cats Worker
@@ -21,11 +21,14 @@ final class CatsWorker: CatsWorkerProtocol {
         self.networkService = networkService
     }
 
-    func fetchCatBreeds() async throws -> CatBreedsAPIResponse {
+    func fetchCatBreeds(page: Int) async throws -> CatBreedsAPIResponse {
         return try await networkService.request(
             method: .get,
             url: Config.catURL.appending(path: "breeds"),
-            parameters: ["limit": 100]
+            parameters: [
+                "limit": 10,
+                "page": page
+            ]
         )
     }
 }

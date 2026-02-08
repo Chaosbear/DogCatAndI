@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 
-// MARK: - Me Store
 @MainActor
 class MeViewState: ObservableObject {
     @Published var profile: Me.FetchProfile.ViewModel?
@@ -16,162 +15,242 @@ class MeViewState: ObservableObject {
     @Published var errorState: ErrorViewStateModel = .noError
 }
 
-// MARK: - Me View
-
 struct MeView: View {
-    @ObservedObject var store: MeViewState
+    // MARK: - Property
+    @Binding var selectedTab: RootView.MainTab
+
+    // MARK: - Text Style
+    private let titleTextStyle = TextStyler(
+        font: DSFont.h1.font,
+        color: Color(DSColor.black)
+    )
+    private let infoLabelTextStyle = TextStyler(
+        font: DSFont.body1.font,
+        color: Color(DSColor.gray5)
+    )
+    private let infoTextStyle = TextStyler(
+        font: DSFont.body1.font,
+        color: Color(DSColor.black)
+    )
+    private let buttonTextStyle = TextStyler(
+        font: DSFont.body3.font,
+        color: Color(DSColor.primaryWhite)
+    )
+
+    // MARK: - Layout
+    private let sidePadding: CGFloat = 48
+
+    // MARK: - Dependency
+    @ObservedObject var viewState: MeViewState
     let interactor: MeBusinessLogic
 
+    // MARK: - Init
+    init(
+        selectedTab: Binding<RootView.MainTab>,
+        viewState: MeViewState,
+        interactor: MeBusinessLogic
+    ) {
+        self._selectedTab = selectedTab
+        self.viewState = viewState
+        self.interactor = interactor
+    }
+
+    // MARK: - View Body
     var body: some View {
         VStack(spacing: 0) {
-            if let profile = store.profile {
-                ScrollView {
-                    VStack(spacing: 20) {
-                        // Profile Image
-                        AsyncImage(url: profile.profileImageURL) { phase in
-                            switch phase {
-                            case .empty:
-                                Image("image_placeholder")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 120, height: 120)
-                                    .clipShape(Circle())
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 120, height: 120)
-                                    .clipShape(Circle())
-                            case .failure:
-                                Image("image_placeholder")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 120, height: 120)
-                                    .clipShape(Circle())
-                            @unknown default:
-                                EmptyView()
-                            }
-                        }
-                        .overlay(Circle().stroke(Color.gray.opacity(0.3), lineWidth: 2))
-                        .padding(.top, 20)
-
-                        // Profile Details
-                        VStack(spacing: 12) {
-                            profileRow(label: "Title", value: profile.title)
-                            profileRow(label: "Firstname", value: profile.firstName)
-                            profileRow(label: "Lastname", value: profile.lastName)
-                            profileRow(label: "Date of Birth", value: profile.dateOfBirth)
-                            profileRow(label: "Age", value: profile.age)
-                            genderRow(gender: profile.gender)
-                            profileRow(label: "Nationality", value: profile.nationality)
-                            profileRow(label: "Mobile", value: profile.mobile)
-                            addressRow(address: profile.address)
-                        }
-                        .padding(.horizontal, 16)
-                    }
+            title
+            ZStack {
+                profileContent
+                if viewState.isLoading && viewState.errorState == .noError {
+                    profileSkeleton
                 }
-            } else if let error = store.errorMessage {
-                VStack(spacing: 16) {
-                    Text("Failed to load profile")
-                        .font(.headline)
-                    Text(error)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                if viewState.errorState != .noError {
+                    errorView
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-
-            Spacer(minLength: 0)
-
-            // Reload button
-            Button(action: {
-                interactor.fetchProfile(request: Me.FetchProfile.Request())
-            }) {
-                Text("Reload Profile")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
-            .background(Color(.systemBackground))
+            .frameExpand()
+            reloadButton
         }
-        .loadingOverlay(isLoading: store.isLoading)
-        .onAppear {
-            if store.profile == nil {
-                interactor.fetchProfile(request: Me.FetchProfile.Request())
+        .background(Color(DSColor.primaryWhite))
+        .onViewDidLoad {
+            if viewState.profile == nil && selectedTab == .me {
+                interactor.fetchProfile()
+            }
+        }
+        .onChange(of: selectedTab) { newTab in
+            if newTab == .me && viewState.profile == nil {
+                interactor.fetchProfile()
             }
         }
     }
 
-    // MARK: - Profile Rows
+    // MARK: - View Component
+    @ViewBuilder
+    private var title: some View {
+        Text("Me")
+            .modifier(titleTextStyle)
+            .frameHorizontalExpand(alignment: .leading)
+            .padding(.top, 12)
+            .padding(.bottom, 6)
+            .padding(.horizontal, 16)
+    }
+
+    @ViewBuilder
+    private var profileContent: some View {
+        ScrollView {
+            if let profile = viewState.profile {
+                VStack(spacing: 24) {
+                    profileImage(url: profile.profileImageURL)
+
+                    // Profile Details
+                    VStack(spacing: 12) {
+                        profileRow(label: "Title", value: profile.title)
+                        profileRow(label: "Firstname", value: profile.firstName)
+                        profileRow(label: "Lastname", value: profile.lastName)
+                        profileRow(label: "Date of Birth", value: profile.dateOfBirth)
+                        profileRow(label: "Age", value: profile.age)
+                        genderRow(gender: profile.gender)
+                        profileRow(label: "Nationality", value: profile.nationality)
+                        profileRow(label: "Mobile", value: profile.mobile)
+                        addressRow(address: profile.address)
+                    }
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(6)
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, sidePadding)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func profileImage(url: URL?) -> some View {
+        AsyncImage(url: url) { phase in
+            switch phase {
+            case .empty, .failure:
+                Image("image_placeholder")
+                    .resizable()
+                    .scaledToFill()
+                    .background(Color(.systemGray6))
+            case .success(let image):
+                image
+                    .resizable()
+                    .scaledToFit()
+            @unknown default:
+                EmptyView()
+            }
+        }
+        .frame(width: 160, height: 160)
+        .clipShape(Circle())
+    }
 
     @ViewBuilder
     private func profileRow(label: String, value: String) -> some View {
         HStack(alignment: .top) {
-            Text("\(label):")
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.secondary)
+            Text("\(label): ")
+                .modifier(infoLabelTextStyle)
                 .frame(width: 110, alignment: .leading)
 
             Text(value)
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
-
-            Spacer()
+                .modifier(infoTextStyle)
         }
-        .padding(.vertical, 4)
+        .frameHorizontalExpand(alignment: .leading)
     }
 
     @ViewBuilder
     private func genderRow(gender: String) -> some View {
         HStack(alignment: .center) {
-            Text("Gender:")
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.secondary)
+            Text("Gender: ")
+                .modifier(infoLabelTextStyle)
                 .frame(width: 110, alignment: .leading)
 
             Image(gender.lowercased() == "male" ? "ic_male" : "ic_female")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 24, height: 24)
-
-            Spacer()
         }
-        .padding(.vertical, 4)
+        .frameHorizontalExpand(alignment: .leading)
     }
 
     @ViewBuilder
     private func addressRow(address: String) -> some View {
         HStack(alignment: .top) {
-            Text("Address:")
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.secondary)
+            Text("Address: ")
+                .modifier(infoLabelTextStyle)
                 .frame(width: 110, alignment: .leading)
 
             Text(address)
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
-
-            Spacer()
+                .modifier(infoTextStyle)
         }
-        .padding(.vertical, 4)
+        .frameHorizontalExpand(alignment: .leading)
+    }
+
+    @ViewBuilder
+    private var profileSkeleton: some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                CircleSkeletionView()
+                    .frame(width: 160, height: 160)
+                    .shimmering()
+
+                // Profile Details
+                VStack(spacing: 12) {
+                    RoundedRectangleSkeletionView(radius: 4)
+                        .frameHorizontalExpand()
+                        .frame(height: 20)
+                    RoundedRectangleSkeletionView(radius: 4)
+                        .frameHorizontalExpand()
+                        .frame(height: 20)
+                    RoundedRectangleSkeletionView(radius: 4)
+                        .frameHorizontalExpand()
+                        .frame(height: 20)
+                        .padding(.trailing, 120)
+                }
+                .shimmering()
+            }
+            .padding(.vertical, 12)
+            .padding(.horizontal, sidePadding)
+        }
+        .background(Color(DSColor.primaryWhite))
+    }
+
+    @ViewBuilder
+    private var reloadButton: some View {
+        Text("Reload Profile")
+            .modifier(buttonTextStyle)
+            .multilineTextAlignment(.center)
+            .lineSpacing(2)
+            .padding(4)
+            .frame(height: 40)
+            .frame(maxWidth: 240)
+            .background(Color(DSColor.primaryBlue))
+            .cornerRadiusWithBorder(Color(DSColor.black), radius: 8, width: 1, corners: .allCorners)
+            .asButton {
+                interactor.fetchProfile()
+            }
+            .frameHorizontalExpand(alignment: .center)
+            .padding(.horizontal, 32)
+            .padding(.vertical, 12)
+    }
+
+    @ViewBuilder
+    private var errorView: some View {
+        ErrorView(state: viewState.errorState) {
+            interactor.fetchProfile()
+        }
+        .expandInScrollView()
+        .background(Color(DSColor.primaryWhite))
     }
 }
 
-// MARK: - Preview
-
 #if DEBUG
 private class PreviewMeInteractor: MeBusinessLogic {
-    func fetchProfile(request: Me.FetchProfile.Request) {}
+    func fetchProfile() {}
 }
 
 #Preview {
-    let store = MeStore()
-    store.profile = Me.FetchProfile.ViewModel(
+    let viewState = MeViewState()
+    viewState.profile = Me.FetchProfile.ViewModel(
         profileImageURL: nil,
         title: "Mr",
         firstName: "John",
@@ -183,6 +262,10 @@ private class PreviewMeInteractor: MeBusinessLogic {
         mobile: "(555) 987-6543",
         address: "123 Main Street\nSpringfield, Illinois\nUnited States 62704"
     )
-    return MeView(store: store, interactor: PreviewMeInteractor())
+    return MeView(
+        selectedTab: .constant(.me),
+        viewState: viewState,
+        interactor: PreviewMeInteractor()
+    )
 }
 #endif

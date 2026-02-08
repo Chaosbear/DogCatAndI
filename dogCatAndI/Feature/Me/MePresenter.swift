@@ -7,15 +7,11 @@
 
 import Foundation
 
-// MARK: - Me Presentation Logic
-
 protocol MePresentationLogic: AnyObject {
     func presentProfile(response: Me.FetchProfile.Response)
     func presentLoading(_ isLoading: Bool)
     func presentErrorState(_ state: ErrorViewStateModel)
 }
-
-// MARK: - Me Presenter
 
 class MePresenter: MePresentationLogic {
     weak var viewState: MeViewState?
@@ -31,26 +27,50 @@ class MePresenter: MePresentationLogic {
         }
 
         // Format date of birth
-        var dobString = Utils.dateFormat(from: user.dob.date, format: .custom("dd/MM/yyyy")) ?? user.dob.date
+        let dobString = Utils.dateFormat(from: user.dob.date, format: .custom("dd/MM/yyyy")) ?? user.dob.date
 
         // Format address
         let location = user.location
-        let streetAddress = "\(location.street.number) \(location.street.name)"
-        let cityState = "\(location.city), \(location.state)"
-        let countryPostcode = "\(location.country) \(location.postcode)"
-        let fullAddress = "\(streetAddress)\n\(cityState)\n\(countryPostcode)"
+
+
+        var streetAddress = "\(location.street.number)"
+        if !location.street.name.isEmpty {
+            streetAddress += "  \(location.street.name)"
+        }
+        var cityState = ""
+        if !location.city.isEmpty {
+            cityState += location.city
+        }
+        if !location.state.isEmpty {
+            cityState += ",  \(location.state)"
+        }
+        var countryPostcode = ""
+        if !location.country.isEmpty {
+            countryPostcode += location.country
+        }
+        if !location.postcode.isEmpty {
+            cityState += "  \(location.postcode)"
+        }
+
+        var fullAddress = "\(streetAddress)\n\(cityState)\n\(countryPostcode)"
+        if !cityState.isEmpty {
+            fullAddress += "\n\(cityState)"
+        }
+        if !countryPostcode.isEmpty {
+            fullAddress += "\n\(countryPostcode)"
+        }
 
         let viewModel = Me.FetchProfile.ViewModel(
             profileImageURL: URL(string: user.picture.large),
-            title: user.name.title,
-            firstName: user.name.first,
-            lastName: user.name.last,
+            title: user.name.title.withPlaceholder(),
+            firstName: user.name.first.withPlaceholder(),
+            lastName: user.name.last.withPlaceholder(),
             dateOfBirth: dobString,
             age: String(user.dob.age),
             gender: user.gender,
-            nationality: user.nat,
-            mobile: user.cell,
-            address: fullAddress
+            nationality: user.nat.withPlaceholder(),
+            mobile: user.cell.withPlaceholder(),
+            address: fullAddress.withPlaceholder()
         )
         viewState?.profile = viewModel
     }

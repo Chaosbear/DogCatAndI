@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Main Tab View
 struct RootView: View {
     // MARK: - Type
     enum MainTab: String, CaseIterable {
@@ -42,7 +41,7 @@ struct RootView: View {
     private var navBar: some View {
         CustomNavBarView(
             title: "Dog + Cat & I",
-            titleFont: .h1,
+            titleFont: .h2,
             hasBackButton: false,
             barHeight: 64,
             leadingView: {
@@ -93,41 +92,28 @@ struct RootView: View {
     @ViewBuilder
     private var content: some View {
         TabView(selection: $selectedTab) {
-//                DogsView(store: container.dogsStore, interactor: container.dogsInteractor)
-//                    .tabItem {
-//                        Image("ic_dog")
-//                        Text("Dogs")
-//                    }
-//                    .tag(0)
-//
-//                CatsView(store: container.catsStore, interactor: container.catsInteractor)
-//                    .tabItem {
-//                        Image("ic_cat")
-//                        Text("Cats")
-//                    }
-//                    .tag(1)
-//
-//                MeView(store: container.meStore, interactor: container.meInteractor)
-//                    .tabItem {
-//                        Image("ic_profile")
-//                        Text("Me")
-//                    }
-//                    .tag(2)
-            Color.green
-                .frameExpand()
-                .tag(MainTab.dogs)
-            Color.yellow
-                .frameExpand()
-                .tag(MainTab.cats)
-            Color.blue
-                .frameExpand()
-                .tag(MainTab.me)
+            DogsView(
+                selectedTab: $selectedTab,
+                viewState: container.dogsViewState,
+                interactor: container.dogsInteractor
+            )
+            .tag(MainTab.dogs)
+            CatsView(
+                selectedTab: $selectedTab,
+                viewState: container.catsViewState,
+                interactor: container.catsInteractor
+            )
+            .tag(MainTab.cats)
+            MeView(
+                selectedTab: $selectedTab,
+                viewState: container.meViewState,
+                interactor: container.meInteractor
+            )
+            .tag(MainTab.me)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     RootView()

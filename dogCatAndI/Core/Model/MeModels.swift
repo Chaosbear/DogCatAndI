@@ -10,8 +10,6 @@ import Foundation
 // MARK: - Me Use Cases
 enum Me {
     enum FetchProfile {
-        struct Request {}
-
         struct Response {
             let user: RandomUserResult?
         }

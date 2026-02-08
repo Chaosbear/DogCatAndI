@@ -35,22 +35,22 @@ struct DSColor {
     // gray
     /// 0x050505
     static var gray1: IntegerLiteralType { 0x050505 }
-    /// 0x1C1C1E
-    static var gray2: IntegerLiteralType { 0x1C1C1E }
-    /// 0x2C2C2E
-    static var gray3: IntegerLiteralType { 0x2C2C2E }
-    /// 0x3A3A3C
-    static var gray4: IntegerLiteralType { 0x3A3A3C }
-    /// 0x8E8E93
-    static var gray5: IntegerLiteralType { 0x8E8E93 }
-    /// 0xD1D1D6
-    static var gray6: IntegerLiteralType { 0xD1D1D6 }
-    /// 0xF2F2F7
-    static var gray7: IntegerLiteralType { 0xF2F2F7 }
-    /// 0xAEAEB2
-    static var gray8: IntegerLiteralType { 0xAEAEB2 }
-    /// 0x2E2E30
-    static var gray9: IntegerLiteralType { 0x2E2E30 }
-    /// 0xD1D1D6
-    static var gray10: IntegerLiteralType { 0xD1D1D6 }
+    /// 0x282829
+    static var gray2: IntegerLiteralType { 0x282829 }
+    /// 0x3C3C3D
+    static var gray3: IntegerLiteralType { 0x3C3C3D }
+    /// 0x535354
+    static var gray4: IntegerLiteralType { 0x535354 }
+    /// 0x6A6A6B
+    static var gray5: IntegerLiteralType { 0x6A6A6B }
+    /// 0x818182
+    static var gray6: IntegerLiteralType { 0x818182 }
+    /// 0x9A9A9C
+    static var gray7: IntegerLiteralType { 0x9A9A9C }
+    /// 0xBBBBBD
+    static var gray8: IntegerLiteralType { 0xBBBBBD }
+    /// 0xD7D7D9
+    static var gray9: IntegerLiteralType { 0xD7D7D9 }
+    /// 0xF2F2F2
+    static var gray10: IntegerLiteralType { 0xF2F2F2 }
 }

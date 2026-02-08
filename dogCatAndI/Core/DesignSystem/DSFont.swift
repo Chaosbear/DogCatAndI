@@ -8,11 +8,11 @@
 import SwiftUI
 
 enum DSFont {
-    /// 30
+    /// 40
     case h1
-    /// 26
+    /// 30
     case h2
-    /// 22
+    /// 26
     case h3
     /// 18
     case subTitle

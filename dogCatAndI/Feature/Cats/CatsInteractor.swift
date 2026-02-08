@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Cats Business Logic
 protocol CatsBusinessLogic: AnyObject {
     func fetchBreeds() async
     func refreshBreeds() async
@@ -38,11 +37,13 @@ class CatsInteractor: CatsBusinessLogic {
         presenter.presentLoading(true)
 
         do {
-            let apiResponse = try await worker.fetchCatBreeds()
+            let apiResponse = try await worker.fetchCatBreeds(page: pagination.loadedPage + 1)
 
             pagination.loadedPage = apiResponse.currentPage ?? (pagination.loadedPage + 1)
             pagination.hasNext = apiResponse.nextPageURL != nil
 
+            isLoading = false
+            presenter.presentLoading(false)
             presenter.presentBreeds(
                 response: Cats.FetchBreeds.Response(breeds: apiResponse.data),
                 isReplace: pagination.loadedPage <= 1
@@ -50,14 +51,14 @@ class CatsInteractor: CatsBusinessLogic {
 
             presenter.presentErrorState(.noError)
         } catch {
+            isLoading = false
+            presenter.presentLoading(false)
             if let networkError = error as? NetworkError, case .internetConnectionError = networkError {
                 presenter.presentErrorState(.noInternetError)
             } else {
                 presenter.presentErrorState(.systemError)
             }
         }
-        isLoading = false
-        presenter.presentLoading(false)
     }
 
     func refreshBreeds() async {

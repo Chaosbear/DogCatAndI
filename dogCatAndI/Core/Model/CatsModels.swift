@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OrderedCollections
 
 // MARK: - Cats Use Cases
 
@@ -28,7 +29,7 @@ enum Cats {
                 let coat: String
                 let pattern: String
             }
-            let breeds: [BreedItem]
+            var breeds: OrderedDictionary<String, BreedItem> = [:]
         }
     }
 }

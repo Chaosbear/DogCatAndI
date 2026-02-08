@@ -6,16 +6,13 @@
 //
 
 import Foundation
-
-// MARK: - Cats Presentation Logic
+import OrderedCollections
 
 protocol CatsPresentationLogic: AnyObject {
     func presentBreeds(response: Cats.FetchBreeds.Response, isReplace: Bool)
     func presentLoading(_ isLoading: Bool)
     func presentErrorState(_ state: ErrorViewStateModel)
 }
-
-// MARK: - Cats Presenter
 
 class CatsPresenter: CatsPresentationLogic {
     weak var viewState: CatsViewState?
@@ -25,22 +22,24 @@ class CatsPresenter: CatsPresentationLogic {
     }
 
     func presentBreeds(response: Cats.FetchBreeds.Response, isReplace: Bool) {
-        let items = response.breeds.map { breed in
-            Cats.FetchBreeds.ViewModel.BreedItem(
+        var dict: OrderedDictionary<String, Cats.FetchBreeds.ViewModel.BreedItem> = [:]
+        response.breeds.forEach { breed in
+            let item = Cats.FetchBreeds.ViewModel.BreedItem(
                 id: breed.breed,
                 breed: breed.breed,
-                country: breed.country,
-                origin: breed.origin,
-                coat: breed.coat,
-                pattern: breed.pattern
+                country: breed.country.withPlaceholder(),
+                origin: breed.origin.withPlaceholder(),
+                coat: breed.coat.withPlaceholder(),
+                pattern: breed.pattern.withPlaceholder()
             )
+            dict[breed.id] = item
         }
 
-        let viewModel = Cats.FetchBreeds.ViewModel(breeds: items)
+        let viewModel = Cats.FetchBreeds.ViewModel(breeds: dict)
         if isReplace {
             viewState?.breeds = viewModel.breeds
         } else {
-            viewState?.breeds.append(contentsOf: viewModel.breeds)
+            viewState?.breeds.merge(dict, uniquingKeysWith: { _, new in return new})
         }
     }
 

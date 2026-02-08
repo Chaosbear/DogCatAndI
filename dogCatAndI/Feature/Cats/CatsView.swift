@@ -7,110 +7,177 @@
 
 import SwiftUI
 import Combine
+import OrderedCollections
 
-// MARK: - Cats Store
 @MainActor
 class CatsViewState: ObservableObject {
-    @Published var breeds: [Cats.FetchBreeds.ViewModel.BreedItem] = []
+    @Published var breeds: OrderedDictionary<String, Cats.FetchBreeds.ViewModel.BreedItem> = [:]
     @Published var isLoading = false
     @Published var errorState: ErrorViewStateModel = .noError
     @Published var expandedBreedId: String?
 }
 
-// MARK: - Cats View
-
 struct CatsView: View {
-    @ObservedObject var store: CatsViewState
-    let interactor: CatsBusinessLogic
+    // MARK: - Property
+    @Binding var selectedTab: RootView.MainTab
 
+    // MARK: - Text Style
+    private let titleTextStyle = TextStyler(
+        font: DSFont.h1.font,
+        color: Color(DSColor.black)
+    )
+    private let subtitleTextStyle = TextStyler(
+        font: DSFont.h3.font,
+        color: Color(DSColor.black)
+    )
+
+    // MARK: - Layout
+    private let sidePadding: CGFloat = 16
+
+    // MARK: - Dependency
+    @ObservedObject var viewState: CatsViewState
+    private let interactor: CatsBusinessLogic
+
+    // MARK: - Init
+    init(
+        selectedTab: Binding<RootView.MainTab>,
+        viewState: CatsViewState,
+        interactor: CatsBusinessLogic
+    ) {
+        self._selectedTab = selectedTab
+        self.viewState = viewState
+        self.interactor = interactor
+    }
+
+    // MARK: - View Body
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            Text("Cat Breeds")
-                .font(.system(size: 20, weight: .bold))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
-
-            // Breeds list
-            List {
-                ForEach(store.breeds) { breed in
-                    breedRow(breed)
-                        .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
-                        .listRowSeparator(.hidden)
-                }
-            }
-            .listStyle(.plain)
+            title
+            catContent
         }
-        .loadingOverlay(isLoading: store.isLoading)
-        .onAppear {
-            if store.breeds.isEmpty {
-                interactor.fetchBreeds(request: Cats.FetchBreeds.Request())
+        .background(Color(DSColor.primaryWhite))
+        .taskOnViewDidLoad {
+            if await viewState.breeds.isEmpty && selectedTab == .cats {
+                await interactor.fetchBreeds()
+            }
+        }
+        .onChange(of: selectedTab) { newTab in
+            Task {
+                if newTab == .cats && viewState.breeds.isEmpty {
+                    await interactor.fetchBreeds()
+                }
             }
         }
     }
 
-    // MARK: - Breed Row
+    // MARK: - View Component
+    @ViewBuilder
+    private var title: some View {
+        Text("Cats")
+            .modifier(titleTextStyle)
+            .frameHorizontalExpand(alignment: .leading)
+            .padding(.top, 12)
+            .padding([.horizontal, .bottom], sidePadding)
+    }
 
     @ViewBuilder
-    private func breedRow(_ breed: Cats.FetchBreeds.ViewModel.BreedItem) -> some View {
-        let isExpanded = store.expandedBreedId == breed.id
-
+    private var catContent: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Header row - always visible
-            Button(action: {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    if store.expandedBreedId == breed.id {
-                        store.expandedBreedId = nil
+            Text("Cat Breeds")
+                .modifier(subtitleTextStyle)
+                .frameHorizontalExpand(alignment: .leading)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 16)
+            HDividerView()
+
+            if !viewState.breeds.isEmpty {
+                catList
+            } else {
+                if viewState.errorState != .noError {
+                    errorView
+                } else {
+                    if viewState.isLoading {
+                        catListSkelton
                     } else {
-                        store.expandedBreedId = breed.id
+                        catList
                     }
                 }
-            }) {
-                HStack {
-                    Text(breed.breed)
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.primary)
-
-                    Spacer()
-
-                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 14))
-                }
-                .padding(.vertical, 12)
-                .padding(.horizontal, 16)
-            }
-
-            // Expanded details
-            if isExpanded {
-                VStack(alignment: .leading, spacing: 8) {
-                    detailRow(label: "Country", value: breed.country)
-                    detailRow(label: "Origin", value: breed.origin)
-                    detailRow(label: "Coat", value: breed.coat)
-                    detailRow(label: "Pattern", value: breed.pattern)
-                }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 12)
-                .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
-        .background(Color(.systemGray6))
-        .cornerRadius(8)
+        .border(Color(DSColor.black))
+        .padding(.horizontal, sidePadding)
     }
 
     @ViewBuilder
-    private func detailRow(label: String, value: String) -> some View {
-        HStack(alignment: .top) {
-            Text("\(label):")
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.secondary)
-                .frame(width: 70, alignment: .leading)
-
-            Text(value)
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
+    private var catList: some View {
+        ScrollView {
+            VStack(alignment: .center, spacing: 0) {
+                LazyVStack(alignment: .center, spacing: 0) {
+                    ForEach(viewState.breeds.values) { breed in
+                        CatCardView(
+                            expandBreedId: $viewState.expandedBreedId,
+                            breed: breed
+                        )
+                        .onAppear {
+                            if breed.id == viewState.breeds.keys.last {
+                                Task {
+                                    await interactor.fetchBreeds()
+                                }
+                            }
+                        }
+                    }
+                }
+                if !viewState.breeds.isEmpty {
+                    if viewState.errorState != .noError {
+                        fetchMoreErrorView
+                    } else if viewState.isLoading {
+                        ProgressView()
+                            .padding(.vertical, 12)
+                            .frameHorizontalExpand(alignment: .center)
+                    }
+                }
+            }
+            .padding(.bottom, sidePadding)
         }
+        .refreshableWithDelay {
+            await interactor.refreshBreeds()
+        }
+    }
+
+    @ViewBuilder
+    private var catListSkelton: some View {
+        ScrollView {
+            VStack(alignment: .center, spacing: 0) {
+                ForEach(1...3, id: \.self) { _ in
+                    CatCardSkeletonView()
+                }
+            }
+            .padding(.bottom, sidePadding)
+        }
+    }
+
+    @ViewBuilder
+    private var errorView: some View {
+        ErrorView(state: viewState.errorState) {
+            Task {
+                await interactor.fetchBreeds()
+            }
+        }
+        .expandInScrollView()
+    }
+
+    @ViewBuilder
+    private var fetchMoreErrorView: some View {
+        ErrorView(
+            imageName: nil,
+            title: viewState.errorState.title,
+            message: viewState.errorState.message
+        ) {
+            Task {
+                await interactor.fetchBreeds()
+            }
+        }
+        .frameHorizontalExpand(alignment: .center)
     }
 }
 
@@ -118,16 +185,42 @@ struct CatsView: View {
 
 #if DEBUG
 private class PreviewCatsInteractor: CatsBusinessLogic {
-    func fetchBreeds(request: Cats.FetchBreeds.Request) {}
+    func fetchBreeds() async {}
+    func refreshBreeds() async {}
 }
 
 #Preview {
-    let store = CatsStore()
-    store.breeds = [
-        Cats.FetchBreeds.ViewModel.BreedItem(id: "Persian", breed: "Persian", country: "Iran", origin: "Natural", coat: "Long", pattern: "Solid"),
-        Cats.FetchBreeds.ViewModel.BreedItem(id: "Siamese", breed: "Siamese", country: "Thailand", origin: "Natural", coat: "Short", pattern: "Colorpoint"),
-        Cats.FetchBreeds.ViewModel.BreedItem(id: "Maine Coon", breed: "Maine Coon", country: "United States", origin: "Natural", coat: "Long", pattern: "Tabby")
+    let viewState = CatsViewState()
+    viewState.breeds = [
+        "Persian": Cats.FetchBreeds.ViewModel.BreedItem(
+            id: "Persian",
+            breed: "Persian",
+            country: "Iran",
+            origin: "Natural",
+            coat: "Long",
+            pattern: "Solid"
+        ),
+        "Siamese" : Cats.FetchBreeds.ViewModel.BreedItem(
+            id: "Siamese",
+            breed: "Siamese",
+            country: "Thailand",
+            origin: "Natural",
+            coat: "Short",
+            pattern: "Colorpoint"
+        ),
+        "Maine Coon" : Cats.FetchBreeds.ViewModel.BreedItem(
+            id: "Maine Coon",
+            breed: "Maine Coon",
+            country: "United States",
+            origin: "Natural",
+            coat: "Long",
+            pattern: "Tabby"
+        )
     ]
-    return CatsView(store: store, interactor: PreviewCatsInteractor())
+    return CatsView(
+        selectedTab: .constant(.cats),
+        viewState: viewState,
+        interactor: PreviewCatsInteractor()
+    )
 }
 #endif

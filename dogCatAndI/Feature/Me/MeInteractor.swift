@@ -7,13 +7,10 @@
 
 import Foundation
 
-// MARK: - Me Business Logic
-
 protocol MeBusinessLogic: AnyObject {
-    func fetchProfile(request: Me.FetchProfile.Request)
+    func fetchProfile()
 }
 
-// MARK: - Me Interactor
 class MeInteractor: MeBusinessLogic {
     // MARK: - Property
     private var isLoading = false
@@ -31,7 +28,7 @@ class MeInteractor: MeBusinessLogic {
         self.worker = worker
     }
 
-    func fetchProfile(request: Me.FetchProfile.Request) {
+    func fetchProfile() {
         Task {
             guard !isLoading else { return }
             isLoading = true

@@ -7,16 +7,13 @@
 
 import Foundation
 
-// MARK: - Dogs Business Logic
 protocol DogsBusinessLogic: AnyObject {
     func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType)
-    func retryFetch()
 }
 
 final class DogsInteractor: DogsBusinessLogic {
     // MARK: - Property
     private var isLoading = false
-    private var currentLoadType: Dogs.FetchDogs.Request.LoadType = .concurrent
 
     // MARK: - Dependency
     var presenter: DogsPresentationLogic
@@ -35,7 +32,7 @@ final class DogsInteractor: DogsBusinessLogic {
     func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType) {
         Task {
             guard !isLoading else { return }
-            currentLoadType = loadType
+            presenter.setCurrentLoadType(loadType: loadType)
             switch loadType {
             case .concurrent:
                 await fetchDogsConcurrently()
@@ -137,9 +134,5 @@ final class DogsInteractor: DogsBusinessLogic {
         presenter.presentErrorState(.noError)
         presenter.presentDogs(response: Dogs.FetchDogs.Response(dogImages: dogImages))
         presenter.presentLoading(false)
-    }
-
-    func retryFetch() {
-        fetchDogs(loadType: currentLoadType)
     }
 }
