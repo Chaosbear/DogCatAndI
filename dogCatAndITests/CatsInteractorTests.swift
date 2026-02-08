@@ -24,7 +24,7 @@ final class CatsInteractorTests: XCTestCase {
     func testFetchBreeds_callsWorker() {
         let expectation = XCTestExpectation(description: "Fetch breeds")
 
-        sut.fetchBreeds(request: Cats.FetchBreeds.Request())
+        Task { await sut.fetchBreeds() }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertEqual(self.mockWorker.fetchCallCount, 1)
@@ -37,12 +37,11 @@ final class CatsInteractorTests: XCTestCase {
     func testFetchBreeds_presentsBreeds() {
         let expectation = XCTestExpectation(description: "Presents breeds")
 
-        sut.fetchBreeds(request: Cats.FetchBreeds.Request())
+        Task { await sut.fetchBreeds() }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertEqual(self.mockPresenter.presentBreedsCallCount, 1)
             XCTAssertEqual(self.mockPresenter.lastBreedsResponse?.breeds.count, 2)
-            XCTAssertNil(self.mockPresenter.lastBreedsResponse?.error)
             expectation.fulfill()
         }
 
@@ -52,7 +51,7 @@ final class CatsInteractorTests: XCTestCase {
     func testFetchBreeds_showsAndHidesLoading() {
         let expectation = XCTestExpectation(description: "Loading states")
 
-        sut.fetchBreeds(request: Cats.FetchBreeds.Request())
+        Task { await sut.fetchBreeds() }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertTrue(self.mockPresenter.loadingStates.contains(true))
@@ -63,16 +62,16 @@ final class CatsInteractorTests: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
 
-    func testFetchBreeds_workerError_presentsError() {
-        mockWorker.mockError = NetworkError.invalidResponse
+    func testFetchBreeds_workerError_presentsErrorState() {
+        mockWorker.mockError = NetworkError.serverError(500)
         let expectation = XCTestExpectation(description: "Error handling")
 
-        sut.fetchBreeds(request: Cats.FetchBreeds.Request())
+        Task { await sut.fetchBreeds() }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            XCTAssertEqual(self.mockPresenter.presentBreedsCallCount, 1)
-            XCTAssertNotNil(self.mockPresenter.lastBreedsResponse?.error)
-            XCTAssertEqual(self.mockPresenter.lastBreedsResponse?.breeds.count, 0)
+            XCTAssertEqual(self.mockPresenter.presentBreedsCallCount, 0)
+            XCTAssertEqual(self.mockPresenter.presentErrorStateCallCount, 1)
+            XCTAssertEqual(self.mockPresenter.errorStates.last, .systemError)
             expectation.fulfill()
         }
 

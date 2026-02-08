@@ -6,7 +6,7 @@ class MockCatsWorker: CatsWorkerProtocol {
     var mockError: Error?
     var fetchCallCount = 0
 
-    func fetchCatBreeds() async throws -> CatBreedsAPIResponse {
+    func fetchCatBreeds(page: Int) async throws -> CatBreedsAPIResponse {
         fetchCallCount += 1
         if let error = mockError {
             throw error
@@ -16,9 +16,7 @@ class MockCatsWorker: CatsWorkerProtocol {
             data: [
                 CatBreed(breed: "Persian", country: "Iran", origin: "Natural", coat: "Long", pattern: "Solid"),
                 CatBreed(breed: "Siamese", country: "Thailand", origin: "Natural", coat: "Short", pattern: "Colorpoint")
-            ],
-            lastPage: 1,
-            total: 2
+            ]
         )
     }
 }

@@ -2,15 +2,15 @@ import Foundation
 @testable import dogCatAndI
 
 class MockDogsWorker: DogsWorkerProtocol {
-    var mockResponse: DogAPIResponse?
+    var mockResponse: DogAPIResponseModel?
     var mockError: Error?
     var fetchCallCount = 0
 
-    func fetchRandomDogImage() async throws -> DogAPIResponse {
+    func fetchRandomDogImage() async throws -> DogAPIResponseModel {
         fetchCallCount += 1
         if let error = mockError {
             throw error
         }
-        return mockResponse ?? DogAPIResponse(message: "https://images.dog.ceo/breeds/test/test.jpg", status: "success")
+        return mockResponse ?? DogAPIResponseModel(message: "https://images.dog.ceo/breeds/test/test.jpg")
     }
 }

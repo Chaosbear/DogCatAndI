@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 @testable import dogCatAndI
 
 class MockNetworkService: NetworkServiceProtocol {
@@ -6,22 +7,29 @@ class MockNetworkService: NetworkServiceProtocol {
     var mockError: Error?
     var fetchCallCount = 0
 
-    func fetch<T: Decodable>(from url: URL) async throws -> T {
+    func request<T: Decodable>(
+        method: HTTPMethod,
+        url: URL,
+        parameters: Parameters?
+    ) async throws -> T {
         fetchCallCount += 1
         if let error = mockError {
             throw error
         }
         guard let data = mockData as? T else {
-            throw NetworkError.decodingError(NSError(domain: "Mock", code: 0))
+            throw NetworkError.serverError(0)
         }
         return data
     }
 
-    func fetchData(from url: URL) async throws -> Data {
-        fetchCallCount += 1
-        if let error = mockError {
-            throw error
-        }
-        return Data()
+    func request<T: Decodable>(
+        method: HTTPMethod,
+        url: URL?,
+        parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: [String: String],
+        timeout: Double
+    ) async throws -> T {
+        try await request(method: method, url: url!, parameters: parameters)
     }
 }

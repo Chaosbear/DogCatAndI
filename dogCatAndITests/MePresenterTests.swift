@@ -1,15 +1,16 @@
 import XCTest
 @testable import dogCatAndI
 
+@MainActor
 final class MePresenterTests: XCTestCase {
 
     var sut: MePresenter!
-    var store: MeStore!
+    var store: MeViewState!
 
     override func setUp() {
         super.setUp()
-        store = MeStore()
-        sut = MePresenter(store: store)
+        store = MeViewState()
+        sut = MePresenter(viewState: store)
     }
 
     override func tearDown() {
@@ -24,17 +25,17 @@ final class MePresenterTests: XCTestCase {
             title: "Mr", first: "John", last: "Doe",
             streetNumber: 456, streetName: "Oak Ave",
             city: "Portland", state: "Oregon",
-            country: "United States", postcode: .string("97201"),
+            country: "United States", postcode: "97201",
             dob: "1990-05-15T10:30:00.000Z", age: 35,
             cell: "(555) 987-6543",
             pictureLarge: "https://randomuser.me/api/portraits/men/1.jpg",
             nat: "US"
         )
 
-        let response = Me.FetchProfile.Response(user: user, error: nil)
+        let response = Me.FetchProfile.Response(user: user)
         sut.presentProfile(response: response)
 
-        // Pump the run loop to process DispatchQueue.main.async
+        // Pump the run loop to process updates
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
 
         let profile = store.profile
@@ -49,20 +50,20 @@ final class MePresenterTests: XCTestCase {
         XCTAssertEqual(profile.nationality, "US")
         XCTAssertEqual(profile.mobile, "(555) 987-6543")
         XCTAssertNotNil(profile.profileImageURL)
-        XCTAssertTrue(profile.address.contains("456 Oak Ave"), "Address should contain street")
+        XCTAssertTrue(profile.address.contains("456"), "Address should contain street number")
+        XCTAssertTrue(profile.address.contains("Oak Ave"), "Address should contain street name")
         XCTAssertTrue(profile.address.contains("Portland"), "Address should contain city")
         // Date should be formatted as dd/MM/yyyy
         XCTAssertFalse(profile.dateOfBirth.isEmpty, "Date of birth should not be empty")
     }
 
-    func testPresentProfile_nilUser_setsError() {
-        let response = Me.FetchProfile.Response(user: nil, error: "Test error")
+    func testPresentProfile_nilUser_setsNilProfile() {
+        let response = Me.FetchProfile.Response(user: nil)
         sut.presentProfile(response: response)
 
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
 
         XCTAssertNil(store.profile)
-        XCTAssertEqual(store.errorMessage, "Test error")
     }
 
     func testPresentLoading_updatesStore() {
@@ -79,25 +80,25 @@ final class MePresenterTests: XCTestCase {
         XCTAssertFalse(store.isLoading)
     }
 
-    func testPresentProfile_postcodeAsInt() {
+    func testPresentProfile_postcodeInAddress() {
         let user = makeTestUser(
             gender: "female",
             title: "Ms", first: "Jane", last: "Smith",
             streetNumber: 789, streetName: "Pine Rd",
             city: "Austin", state: "Texas",
-            country: "United States", postcode: .int(78701),
+            country: "United States", postcode: "78701",
             dob: "1985-12-25T08:00:00.000Z", age: 40,
             cell: "(555) 333-4444",
             pictureLarge: "https://randomuser.me/api/portraits/women/1.jpg",
             nat: "US"
         )
 
-        let response = Me.FetchProfile.Response(user: user, error: nil)
+        let response = Me.FetchProfile.Response(user: user)
         sut.presentProfile(response: response)
 
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
 
-        XCTAssertTrue(store.profile?.address.contains("78701") ?? false, "Address should contain int postcode")
+        XCTAssertTrue(store.profile?.address.contains("78701") ?? false, "Address should contain postcode")
     }
 
     // MARK: - Helper
@@ -107,7 +108,7 @@ final class MePresenterTests: XCTestCase {
         title: String, first: String, last: String,
         streetNumber: Int, streetName: String,
         city: String, state: String,
-        country: String, postcode: PostcodeValue,
+        country: String, postcode: String,
         dob: String, age: Int,
         cell: String,
         pictureLarge: String,
@@ -117,17 +118,13 @@ final class MePresenterTests: XCTestCase {
             gender: gender,
             name: RandomUserName(title: title, first: first, last: last),
             location: RandomUserLocation(
-                street: RandomUserLocation.RandomUserStreet(number: streetNumber, name: streetName),
+                street: RandomUserStreet(number: streetNumber, name: streetName),
                 city: city, state: state, country: country, postcode: postcode
             ),
-            dob: RandomUserDob(date: dob, age: age),
+            dob: RandomUserDOB(date: dob, age: age),
             phone: "(555) 000-0000",
             cell: cell,
-            picture: RandomUserPicture(
-                large: pictureLarge,
-                medium: pictureLarge,
-                thumbnail: pictureLarge
-            ),
+            picture: RandomUserPicture(large: pictureLarge),
             nat: nat
         )
     }

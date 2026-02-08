@@ -26,7 +26,7 @@ final class DogsInteractorTests: XCTestCase {
     func testFetchDogsConcurrently_callsWorkerThreeTimes() {
         let expectation = XCTestExpectation(description: "Concurrent fetch completes")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .concurrent))
+        sut.fetchDogs(loadType: .concurrent)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertEqual(self.mockWorker.fetchCallCount, 3)
@@ -39,7 +39,7 @@ final class DogsInteractorTests: XCTestCase {
     func testFetchDogsConcurrently_presentsThreeDogs() {
         let expectation = XCTestExpectation(description: "Presents dogs")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .concurrent))
+        sut.fetchDogs(loadType: .concurrent)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertEqual(self.mockPresenter.presentDogsCallCount, 1)
@@ -53,7 +53,7 @@ final class DogsInteractorTests: XCTestCase {
     func testFetchDogsConcurrently_showsAndHidesLoading() {
         let expectation = XCTestExpectation(description: "Loading states")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .concurrent))
+        sut.fetchDogs(loadType: .concurrent)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertTrue(self.mockPresenter.loadingStates.contains(true))
@@ -67,7 +67,7 @@ final class DogsInteractorTests: XCTestCase {
     func testFetchDogsConcurrently_correctImageIndices() {
         let expectation = XCTestExpectation(description: "Correct indices")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .concurrent))
+        sut.fetchDogs(loadType: .concurrent)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let indices = self.mockPresenter.lastDogsResponse?.dogImages.map { $0.index }.sorted()
@@ -83,7 +83,7 @@ final class DogsInteractorTests: XCTestCase {
     func testFetchDogsSequentially_callsWorkerThreeTimes() {
         let expectation = XCTestExpectation(description: "Sequential fetch completes")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .sequential))
+        sut.fetchDogs(loadType: .sequential)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             XCTAssertEqual(self.mockWorker.fetchCallCount, 3)
@@ -95,11 +95,11 @@ final class DogsInteractorTests: XCTestCase {
 
     // MARK: - Error Handling
 
-    func testFetchDogs_workerError_stillPresentsResponse() {
-        mockWorker.mockError = NetworkError.invalidResponse
+    func testFetchDogs_workerError_presentsErrorState() {
+        mockWorker.mockError = NetworkError.serverError(500)
         let expectation = XCTestExpectation(description: "Error handling")
 
-        sut.fetchDogs(request: Dogs.FetchDogs.Request(loadType: .concurrent))
+        sut.fetchDogs(loadType: .concurrent)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             XCTAssertEqual(self.mockPresenter.presentDogsCallCount, 1)

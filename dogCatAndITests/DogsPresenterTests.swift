@@ -1,6 +1,7 @@
 import XCTest
 @testable import dogCatAndI
 
+@MainActor
 final class DogsPresenterTests: XCTestCase {
 
     var sut: DogsPresenter!
@@ -9,7 +10,7 @@ final class DogsPresenterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         store = DogsViewState()
-        sut = DogsPresenter(store: store)
+        sut = DogsPresenter(viewState: store)
     }
 
     override func tearDown() {
@@ -32,8 +33,7 @@ final class DogsPresenterTests: XCTestCase {
                     timestamp: fixedDate,
                     index: 0
                 )
-            ],
-            error: nil
+            ]
         )
 
         sut.presentDogs(response: response)
@@ -56,8 +56,7 @@ final class DogsPresenterTests: XCTestCase {
                 Dogs.FetchDogs.Response.DogImage(imageURL: "https://example.com/1.jpg", timestamp: date, index: 0),
                 Dogs.FetchDogs.Response.DogImage(imageURL: "https://example.com/2.jpg", timestamp: date, index: 1),
                 Dogs.FetchDogs.Response.DogImage(imageURL: "https://example.com/3.jpg", timestamp: date, index: 2)
-            ],
-            error: nil
+            ]
         )
 
         sut.presentDogs(response: response)

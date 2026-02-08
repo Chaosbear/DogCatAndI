@@ -1,15 +1,17 @@
 import XCTest
+import OrderedCollections
 @testable import dogCatAndI
 
+@MainActor
 final class CatsPresenterTests: XCTestCase {
 
     var sut: CatsPresenter!
-    var store: CatsStore!
+    var store: CatsViewState!
 
     override func setUp() {
         super.setUp()
-        store = CatsStore()
-        sut = CatsPresenter(store: store)
+        store = CatsViewState()
+        sut = CatsPresenter(viewState: store)
     }
 
     override func tearDown() {
@@ -24,16 +26,16 @@ final class CatsPresenterTests: XCTestCase {
             CatBreed(breed: "Siamese", country: "Thailand", origin: "Natural", coat: "Short", pattern: "Colorpoint")
         ]
 
-        let response = Cats.FetchBreeds.Response(breeds: breeds, error: nil)
-        sut.presentBreeds(response: response)
+        let response = Cats.FetchBreeds.Response(breeds: breeds)
+        sut.presentBreeds(response: response, isReplace: true)
 
         let expectation = XCTestExpectation(description: "Store updated")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             XCTAssertEqual(self.store.breeds.count, 2)
-            XCTAssertEqual(self.store.breeds[0].breed, "Persian")
-            XCTAssertEqual(self.store.breeds[0].country, "Iran")
-            XCTAssertEqual(self.store.breeds[1].breed, "Siamese")
-            XCTAssertEqual(self.store.breeds[1].coat, "Short")
+            XCTAssertEqual(self.store.breeds["Persian"]?.breed, "Persian")
+            XCTAssertEqual(self.store.breeds["Persian"]?.country, "Iran")
+            XCTAssertEqual(self.store.breeds["Siamese"]?.breed, "Siamese")
+            XCTAssertEqual(self.store.breeds["Siamese"]?.coat, "Short")
             expectation.fulfill()
         }
 
@@ -41,8 +43,8 @@ final class CatsPresenterTests: XCTestCase {
     }
 
     func testPresentBreeds_emptyList() {
-        let response = Cats.FetchBreeds.Response(breeds: [], error: nil)
-        sut.presentBreeds(response: response)
+        let response = Cats.FetchBreeds.Response(breeds: [])
+        sut.presentBreeds(response: response, isReplace: true)
 
         let expectation = XCTestExpectation(description: "Store updated")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
