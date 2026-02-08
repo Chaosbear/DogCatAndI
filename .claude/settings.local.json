@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(find . -name \"*.swift\" -path \"*/Feature/_RootView/*\" -exec head -50 {} +)"
+    ]
+  }
+}
