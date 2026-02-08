@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Read(./.plist)",
+      "Read(**/*.plist)",
+      "Glob(**/*.plist)",
+      "Read(./.xcconfig)",
+      "Read(**/*.xcconfig)",
+      "Glob(**/*.xcconfig)",
+      "Read(./.xcuserstate)",
+      "Read(**/*.xcuserstate)",
+      "Glob(**/*.xcuserstate)",
+      "Read(./xcuserdata)",
+      "Read(./xcuserdata/*)",
+      "Glob(./xcuserdata/**)",
+      "Read(./DerivedData)",
+      "Read(./DerivedData/*)",
+      "Glob(./DerivedData/**)"
+    ]
+  }
+}
