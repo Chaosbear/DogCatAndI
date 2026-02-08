@@ -65,12 +65,10 @@
 		96AF22942F3655E5002C410D /* MockPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22862F3655E5002C410D /* MockPresenters.swift */; };
 		96AF22952F3655E5002C410D /* CatsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22882F3655E5002C410D /* CatsInteractorTests.swift */; };
 		96AF22962F3655E5002C410D /* CatsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF22892F3655E5002C410D /* CatsPresenterTests.swift */; };
-		96AF22972F3655E5002C410D /* dogCatAndITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228A2F3655E5002C410D /* dogCatAndITests.swift */; };
 		96AF22982F3655E5002C410D /* DogsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */; };
 		96AF22992F3655E5002C410D /* DogsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */; };
 		96AF229A2F3655E5002C410D /* MeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228D2F3655E5002C410D /* MeInteractorTests.swift */; };
 		96AF229B2F3655E5002C410D /* MePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF228E2F3655E5002C410D /* MePresenterTests.swift */; };
-		96AF229F2F3655EA002C410D /* dogCatAndIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */; };
 		96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */; };
 		96AF22B92F365F0F002C410D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22B82F365F0F002C410D /* Alamofire */; };
 		96AF22BC2F365F30002C410D /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22BB2F365F30002C410D /* netfox */; };
@@ -151,12 +149,10 @@
 		96AF22862F3655E5002C410D /* MockPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresenters.swift; sourceTree = "<group>"; };
 		96AF22882F3655E5002C410D /* CatsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsInteractorTests.swift; sourceTree = "<group>"; };
 		96AF22892F3655E5002C410D /* CatsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsPresenterTests.swift; sourceTree = "<group>"; };
-		96AF228A2F3655E5002C410D /* dogCatAndITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndITests.swift; sourceTree = "<group>"; };
 		96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsInteractorTests.swift; sourceTree = "<group>"; };
 		96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsPresenterTests.swift; sourceTree = "<group>"; };
 		96AF228D2F3655E5002C410D /* MeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractorTests.swift; sourceTree = "<group>"; };
 		96AF228E2F3655E5002C410D /* MePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePresenterTests.swift; sourceTree = "<group>"; };
-		96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITests.swift; sourceTree = "<group>"; };
 		96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogCatAndIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		96FFC4942F38F6A500A69B48 /* CatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCardView.swift; sourceTree = "<group>"; };
@@ -430,7 +426,6 @@
 				96AF22872F3655E5002C410D /* Mocks */,
 				96AF22882F3655E5002C410D /* CatsInteractorTests.swift */,
 				96AF22892F3655E5002C410D /* CatsPresenterTests.swift */,
-				96AF228A2F3655E5002C410D /* dogCatAndITests.swift */,
 				96AF228B2F3655E5002C410D /* DogsInteractorTests.swift */,
 				96AF228C2F3655E5002C410D /* DogsPresenterTests.swift */,
 				96AF228D2F3655E5002C410D /* MeInteractorTests.swift */,
@@ -442,7 +437,6 @@
 		96AF229E2F3655EA002C410D /* dogCatAndIUITests */ = {
 			isa = PBXGroup;
 			children = (
-				96AF229C2F3655EA002C410D /* dogCatAndIUITests.swift */,
 				96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */,
 			);
 			path = dogCatAndIUITests;
@@ -684,7 +678,6 @@
 				96AF22942F3655E5002C410D /* MockPresenters.swift in Sources */,
 				96AF22952F3655E5002C410D /* CatsInteractorTests.swift in Sources */,
 				96AF22962F3655E5002C410D /* CatsPresenterTests.swift in Sources */,
-				96AF22972F3655E5002C410D /* dogCatAndITests.swift in Sources */,
 				96AF22982F3655E5002C410D /* DogsInteractorTests.swift in Sources */,
 				96AF22992F3655E5002C410D /* DogsPresenterTests.swift in Sources */,
 				96AF229A2F3655E5002C410D /* MeInteractorTests.swift in Sources */,
@@ -696,7 +689,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96AF229F2F3655EA002C410D /* dogCatAndIUITests.swift in Sources */,
 				96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
