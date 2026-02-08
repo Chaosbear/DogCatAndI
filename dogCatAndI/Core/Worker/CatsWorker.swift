@@ -9,14 +9,12 @@ import Foundation
 import Alamofire
 
 // MARK: - Cats Worker Protocol
-
 protocol CatsWorkerProtocol {
     func fetchCatBreeds() async throws -> CatBreedsAPIResponse
 }
 
 // MARK: - Cats Worker
-
-class CatsWorker: CatsWorkerProtocol {
+final class CatsWorker: CatsWorkerProtocol {
     private let networkService: NetworkServiceProtocol
 
     init(networkService: NetworkServiceProtocol = NetworkService()) {

@@ -14,7 +14,7 @@ protocol MeWorkerProtocol {
 }
 
 // MARK: - Me Worker
-class MeWorker: MeWorkerProtocol {
+final class MeWorker: MeWorkerProtocol {
     private let networkService: NetworkServiceProtocol
 
     init(networkService: NetworkServiceProtocol = NetworkService()) {

@@ -9,17 +9,17 @@ import SwiftUI
 import Combine
 
 // MARK: - Me Store
-
-class MeStore: ObservableObject {
+@MainActor
+class MeViewState: ObservableObject {
     @Published var profile: Me.FetchProfile.ViewModel?
     @Published var isLoading = false
-    @Published var errorMessage: String?
+    @Published var errorState: ErrorViewStateModel = .noError
 }
 
 // MARK: - Me View
 
 struct MeView: View {
-    @ObservedObject var store: MeStore
+    @ObservedObject var store: MeViewState
     let interactor: MeBusinessLogic
 
     var body: some View {
@@ -31,7 +31,7 @@ struct MeView: View {
                         AsyncImage(url: profile.profileImageURL) { phase in
                             switch phase {
                             case .empty:
-                                Image("image-placeholder")
+                                Image("image_placeholder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 120, height: 120)
@@ -43,7 +43,7 @@ struct MeView: View {
                                     .frame(width: 120, height: 120)
                                     .clipShape(Circle())
                             case .failure:
-                                Image("image-placeholder")
+                                Image("image_placeholder")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 120, height: 120)
@@ -134,7 +134,7 @@ struct MeView: View {
                 .foregroundColor(.secondary)
                 .frame(width: 110, alignment: .leading)
 
-            Image(gender.lowercased() == "male" ? "male-gender" : "female-gender")
+            Image(gender.lowercased() == "male" ? "ic_male" : "ic_female")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 24, height: 24)

@@ -3,7 +3,7 @@ import Foundation
 
 // MARK: - Mock Dogs Presenter
 
-class MockDogsPresenter: DogsPresentationLogic {
+class MockDogsPresenter: DogsPresenterProtocol {
     var presentDogsCallCount = 0
     var presentLoadingCallCount = 0
     var lastDogsResponse: Dogs.FetchDogs.Response?

@@ -10,20 +10,21 @@ import Foundation
 // MARK: - Cats Presentation Logic
 
 protocol CatsPresentationLogic: AnyObject {
-    func presentBreeds(response: Cats.FetchBreeds.Response)
+    func presentBreeds(response: Cats.FetchBreeds.Response, isReplace: Bool)
     func presentLoading(_ isLoading: Bool)
+    func presentErrorState(_ state: ErrorViewStateModel)
 }
 
 // MARK: - Cats Presenter
 
 class CatsPresenter: CatsPresentationLogic {
-    weak var store: CatsStore?
+    weak var viewState: CatsViewState?
 
-    init(store: CatsStore) {
-        self.store = store
+    init(viewState: CatsViewState) {
+        self.viewState = viewState
     }
 
-    func presentBreeds(response: Cats.FetchBreeds.Response) {
+    func presentBreeds(response: Cats.FetchBreeds.Response, isReplace: Bool) {
         let items = response.breeds.map { breed in
             Cats.FetchBreeds.ViewModel.BreedItem(
                 id: breed.breed,
@@ -36,18 +37,22 @@ class CatsPresenter: CatsPresentationLogic {
         }
 
         let viewModel = Cats.FetchBreeds.ViewModel(breeds: items)
-
-        DispatchQueue.main.async { [weak self] in
-            self?.store?.breeds = viewModel.breeds
-            if let error = response.error {
-                self?.store?.errorMessage = error
-            }
+        if isReplace {
+            viewState?.breeds = viewModel.breeds
+        } else {
+            viewState?.breeds.append(contentsOf: viewModel.breeds)
         }
     }
 
     func presentLoading(_ isLoading: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.store?.isLoading = isLoading
+        if viewState?.isLoading != isLoading {
+            viewState?.isLoading = isLoading
+        }
+    }
+
+    func presentErrorState(_ state: ErrorViewStateModel) {
+        if viewState?.errorState != state {
+            viewState?.errorState = state
         }
     }
 }

@@ -9,18 +9,18 @@ import SwiftUI
 import Combine
 
 // MARK: - Cats Store
-
-class CatsStore: ObservableObject {
+@MainActor
+class CatsViewState: ObservableObject {
     @Published var breeds: [Cats.FetchBreeds.ViewModel.BreedItem] = []
     @Published var isLoading = false
-    @Published var errorMessage: String?
+    @Published var errorState: ErrorViewStateModel = .noError
     @Published var expandedBreedId: String?
 }
 
 // MARK: - Cats View
 
 struct CatsView: View {
-    @ObservedObject var store: CatsStore
+    @ObservedObject var store: CatsViewState
     let interactor: CatsBusinessLogic
 
     var body: some View {

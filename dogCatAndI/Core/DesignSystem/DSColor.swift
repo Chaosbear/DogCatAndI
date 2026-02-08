@@ -15,10 +15,12 @@ struct DSColor {
     static var primaryBlack: IntegerLiteralType { 0x1C1C1E }
     /// 0x000000
     static var black: IntegerLiteralType { 0x000000 }
-    /// 0xF10000
-    static var primaryRed: IntegerLiteralType { 0xF10000 }
-    /// 0xF88080
-    static var primaryRedDisable: IntegerLiteralType { 0xF88080 }
+    /// 0x5394FC
+    static var primaryBlue: IntegerLiteralType { 0x5394FC }
+    /// 0x99C0FF
+    static var primaryBlueDisable: IntegerLiteralType { 0x99C0FF }
+    /// 0x2554A1
+    static var secondaryBlue: IntegerLiteralType { 0x2554A1 }
 
     // system
     /// 0x30D158

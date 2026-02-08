@@ -25,11 +25,10 @@ enum Dogs {
                 let index: Int
             }
             let dogImages: [DogImage]
-            let error: String?
         }
 
         struct ViewModel {
-            struct DogItem: Identifiable {
+            struct DogItem: Identifiable, Equatable {
                 let id: Int
                 let imageURL: URL?
                 let label: String
@@ -40,7 +39,26 @@ enum Dogs {
 }
 
 // MARK: - Dog API Response
-struct DogAPIResponse: Decodable {
-    let message: String
-    let status: String
+struct DogAPIResponseModel {
+    private(set) var message: String
+
+    init(message: String = "") {
+        self.message = message
+    }
+}
+
+extension DogAPIResponseModel: Codable {
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+    }
+
+    init(from decoder: Decoder) throws {
+        let map = try decoder.container(keyedBy: CodingKeys.self)
+
+        do {
+            self.message = (try map.decodeIfPresent(String?.self, forKey: .message) ?? "") ?? ""
+        } catch {
+            self = Self()
+        }
+    }
 }

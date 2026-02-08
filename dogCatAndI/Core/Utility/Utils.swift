@@ -40,25 +40,6 @@ struct Utils {
         return jsonString
     }
 
-    // MARK: - Number Formatter
-    static func numberFormatter(
-        number: Any,
-        style: NumberFormatter.Style = .decimal,
-        minDecimal: Int = 0,
-        maxDecimal: Int = 0,
-        roundMode: NumberFormatter.RoundingMode? = nil
-    ) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = style
-        formatter.minimumFractionDigits = minDecimal
-        formatter.maximumFractionDigits = maxDecimal
-        if let roundMode {
-            formatter.roundingMode = roundMode
-        }
-        guard let message = formatter.string(for: number) else { return "n/a" }
-        return message
-    }
-
     // MARK: - Date Time Formatter
     enum DateFormatOutput {
         case dateTime, dateTimeAmPm, date, time
@@ -97,20 +78,23 @@ struct Utils {
         return dateValue
     }
 
-    static func dateFormat(from date: Date, format: DateFormatOutput = .date) -> String? {
-        let formatter = DateFormatter()
+    static func dateFormat(from dateStr: String, format: DateFormatOutput = .date) -> String? {
+        let inputFormatter = ISO8601DateFormatter()
 
+        var dateValue = inputFormatter.date(from: dateStr)
+        if dateValue == nil {
+            inputFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            dateValue = inputFormatter.date(from: dateStr)
+        }
+        guard let date = dateValue else { return nil }
+
+        let formatter = DateFormatter()
         formatter.locale = Locale.current
         formatter.dateFormat = format.value
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
 
         return formatter.string(from: date)
-    }
-
-    static func dateFormat(from dateStr: String, format: DateFormatOutput = .date) -> String? {
-        guard let date = date(from: dateStr) else { return nil }
-        return dateFormat(from: date, format: format)
     }
 
     // MARK: - Localization

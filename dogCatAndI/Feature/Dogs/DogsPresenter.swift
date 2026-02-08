@@ -12,12 +12,13 @@ import Foundation
 protocol DogsPresentationLogic: AnyObject {
     func presentDogs(response: Dogs.FetchDogs.Response)
     func presentLoading(_ isLoading: Bool)
+    func presentErrorState(_ state: ErrorViewStateModel)
 }
 
 // MARK: - Dogs Presenter
 
 class DogsPresenter: DogsPresentationLogic {
-    weak var store: DogsStore?
+    weak var viewState: DogsViewState?
 
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -25,8 +26,8 @@ class DogsPresenter: DogsPresentationLogic {
         return formatter
     }()
 
-    init(store: DogsStore) {
-        self.store = store
+    init(store: DogsViewState) {
+        self.viewState = store
     }
 
     func presentDogs(response: Dogs.FetchDogs.Response) {
@@ -40,18 +41,18 @@ class DogsPresenter: DogsPresentationLogic {
         }
 
         let viewModel = Dogs.FetchDogs.ViewModel(dogs: items)
-
-        DispatchQueue.main.async { [weak self] in
-            self?.store?.dogs = viewModel.dogs
-            if let error = response.error {
-                self?.store?.errorMessage = error
-            }
-        }
+        viewState?.dogs = viewModel.dogs
     }
 
     func presentLoading(_ isLoading: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.store?.isLoading = isLoading
+        if viewState?.isLoading != isLoading {
+            viewState?.isLoading = isLoading
+        }
+    }
+
+    func presentErrorState(_ state: ErrorViewStateModel) {
+        if viewState?.errorState != state {
+            viewState?.errorState = state
         }
     }
 }

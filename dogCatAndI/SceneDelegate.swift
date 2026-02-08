@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        // Embed SwiftUI MainTabView in UIHostingController
-        let mainTabView = MainTabView()
-        let hostingController = UIHostingController(rootView: mainTabView)
+        // Embed SwiftUI RootView in UIHostingController
+        let rootView = RootView()
+        let hostingController = UIHostingController(rootView: rootView)
 
         window.rootViewController = hostingController
         self.window = window

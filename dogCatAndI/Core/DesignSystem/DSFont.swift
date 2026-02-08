@@ -8,30 +8,32 @@
 import SwiftUI
 
 enum DSFont {
-    /// 30 : 32
+    /// 30
     case h1
-    /// 26 : 28
+    /// 26
     case h2
-    /// 22 : 24
+    /// 22
     case h3
-    /// 18 : 20
+    /// 18
     case subTitle
-    /// 18 : 20
+    /// 18
     case subTitleBold
-    /// 16 : 18
+    /// 16
     case body1
-    /// 16 : 18
+    /// 16
     case body1Bold
-    /// 14 : 16
+    /// 14
     case body2
-    /// 14 : 16
+    /// 14
     case body2Bold
-    /// 12 : 14
+    /// 12
     case body3
-    /// 12 : 14
+    /// 12
     case body3Bold
-    /// 9 : 11
+    /// 8
     case note
+    /// 8
+    case noteFix
 
     var font: TextStyler.FontType {
         switch self {
@@ -47,6 +49,7 @@ enum DSFont {
         case .body3: return .system(size: 12, weight: .regular)
         case .body3Bold: return .system(size: 12, weight: .bold)
         case .note: return .system(size: 8, weight: .regular)
+        case .noteFix: return .fixSystem(size: 8, weight: .regular)
         }
     }
 }

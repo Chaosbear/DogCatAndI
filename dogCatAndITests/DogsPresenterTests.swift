@@ -4,11 +4,11 @@ import XCTest
 final class DogsPresenterTests: XCTestCase {
 
     var sut: DogsPresenter!
-    var store: DogsStore!
+    var store: DogsViewState!
 
     override func setUp() {
         super.setUp()
-        store = DogsStore()
+        store = DogsViewState()
         sut = DogsPresenter(store: store)
     }
 

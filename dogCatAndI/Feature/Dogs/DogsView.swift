@@ -9,18 +9,42 @@ import SwiftUI
 import Combine
 
 // MARK: - Dogs Store
-
-class DogsStore: ObservableObject {
+@MainActor
+class DogsViewState: ObservableObject {
     @Published var dogs: [Dogs.FetchDogs.ViewModel.DogItem] = []
     @Published var isLoading = false
-    @Published var errorMessage: String?
+    @Published var errorState: ErrorViewStateModel = .noError
 }
 
 // MARK: - Dogs View
 
 struct DogsView: View {
-    @ObservedObject var store: DogsStore
-    let interactor: DogsBusinessLogic
+    // MARK: - Property
+    @Binding var selectedTab: RootView.MainTab
+
+    // MARK: - Dependency
+    @ObservedObject private var viewState: DogsViewState
+    private let interactor: DogsBusinessLogic
+
+    // MARK: - Layout
+    private var gridColumns: [GridItem] {
+        return [GridItem(
+            .adaptive(minimum: 120, maximum: 240),
+            spacing: 12,
+            alignment: .top
+        )]
+    }
+
+    // MARK: - Init
+    init(
+        selectedTab: RootView.MainTab,
+        viewState: DogsViewState,
+        interactor: DogsBusinessLogic
+    ) {
+        self.viewState = viewState
+        self.selectedTab = selectedTab
+        self.interactor = interactor
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -82,7 +106,7 @@ struct DogsView: View {
             AsyncImage(url: dog.imageURL) { phase in
                 switch phase {
                 case .empty:
-                    Image("image-placeholder")
+                    Image("image_placeholder")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity)
@@ -97,7 +121,7 @@ struct DogsView: View {
                         .frame(height: 200)
                         .cornerRadius(8)
                 case .failure:
-                    Image("image-placeholder")
+                    Image("image_placeholder")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity)
@@ -120,14 +144,14 @@ struct DogsView: View {
 }
 
 // MARK: - Preview
-
 #if DEBUG
-private class PreviewDogsInteractor: DogsBusinessLogic {
-    func fetchDogs(request: Dogs.FetchDogs.Request) {}
+private final class PreviewDogsInteractor: DogsBusinessLogic {
+    func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType) {}
+    func retryFetch() {}
 }
 
 #Preview {
-    let store = DogsStore()
+    let store = DogsViewState()
     store.dogs = [
         Dogs.FetchDogs.ViewModel.DogItem(id: 0, imageURL: URL(string: "https://images.dog.ceo/breeds/labrador/n02099712_001.jpg"), label: "Dog #1 - Labrador (12:00:00)"),
         Dogs.FetchDogs.ViewModel.DogItem(id: 1, imageURL: URL(string: "https://images.dog.ceo/breeds/poodle-standard/n02113799_001.jpg"), label: "Dog #2 - Poodle (12:00:01)"),

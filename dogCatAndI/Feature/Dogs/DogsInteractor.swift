@@ -8,56 +8,123 @@
 import Foundation
 
 // MARK: - Dogs Business Logic
-
 protocol DogsBusinessLogic: AnyObject {
-    func fetchDogs(request: Dogs.FetchDogs.Request)
+    func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType)
+    func retryFetch()
 }
 
-// MARK: - Dogs Interactor
+final class DogsInteractor: DogsBusinessLogic {
+    // MARK: - Property
+    private var isLoading = false
+    private var currentLoadType: Dogs.FetchDogs.Request.LoadType = .concurrent
 
-class DogsInteractor: DogsBusinessLogic {
+    // MARK: - Dependency
     var presenter: DogsPresentationLogic
     var worker: DogsWorkerProtocol
 
-    init(presenter: DogsPresentationLogic, worker: DogsWorkerProtocol) {
+    // MARK: - Init
+    init(
+        presenter: DogsPresentationLogic,
+        worker: DogsWorkerProtocol
+    ) {
         self.presenter = presenter
         self.worker = worker
     }
 
-    func fetchDogs(request: Dogs.FetchDogs.Request) {
-        switch request.loadType {
-        case .concurrent:
-            fetchDogsConcurrently()
-        case .sequential:
-            fetchDogsSequentially()
+    // MARK: - Action
+    func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType) {
+        Task {
+            guard !isLoading else { return }
+            currentLoadType = loadType
+            switch loadType {
+            case .concurrent:
+                await fetchDogsConcurrently()
+            case .sequential:
+                await fetchDogsSequentially()
+            }
         }
     }
 
-    // MARK: - Private
-
-    private func fetchDogsConcurrently() {
+    private func fetchDogsConcurrently() async {
+        isLoading = true
         presenter.presentLoading(true)
 
-        Task {
-            var results: [(Int, DogAPIResponse?, Date)] = []
+        var results: [(Int, DogAPIResponseModel?, Date, NetworkError?)] = []
 
-            await withTaskGroup(of: (Int, DogAPIResponse?, Date).self) { group in
-                for i in 0..<3 {
-                    group.addTask { [weak self] in
-                        let timestamp = Date()
-                        let response = try? await self?.worker.fetchRandomDogImage()
-                        return (i, response, timestamp)
+        await withTaskGroup(of: (Int, DogAPIResponseModel?, Date, NetworkError?).self) { group in
+            for i in 0..<3 {
+                group.addTask { [weak self] in
+                    let timestamp = Date()
+                    do {
+                        let response = try await self?.worker.fetchRandomDogImage()
+                        return (i, response, timestamp, nil)
+                    } catch {
+                        return (i, nil, timestamp, error as? NetworkError)
                     }
-                }
-
-                for await result in group {
-                    results.append(result)
                 }
             }
 
-            results.sort { $0.0 < $1.0 }
+            for await result in group {
+                results.append(result)
+            }
+        }
 
-            let dogImages = results.compactMap { index, response, timestamp -> Dogs.FetchDogs.Response.DogImage? in
+        handleFetchResult(results: results)
+    }
+
+    private func fetchDogsSequentially() async {
+        isLoading = true
+        presenter.presentLoading(true)
+
+        let now = Date()
+        let calendar = Calendar.current
+        let second = calendar.component(.second, from: now)
+        let lastDigit = second % 10
+        let delayNanoseconds: UInt64 = lastDigit < 5 ? 2_000_000_000 : 3_000_000_000
+
+        var results: [(Int, DogAPIResponseModel?, Date, NetworkError?)] = []
+
+        for i in 0..<3 {
+            if i > 0 {
+                try? await Task.sleep(nanoseconds: delayNanoseconds)
+            }
+
+            let timestamp = Date()
+            do {
+                let response = try await worker.fetchRandomDogImage()
+                results.append((i, response, timestamp, nil))
+            } catch {
+                results.append((i, nil, timestamp, error as? NetworkError))
+            }
+        }
+
+        handleFetchResult(results: results)
+    }
+
+    private func handleFetchResult(results: [(Int, DogAPIResponseModel?, Date, NetworkError?)]) {
+        guard !results.contains(where: {
+            if case .internetConnectionError = $0.3 {
+                return true
+            } else {
+                return false
+            }
+        }) else {
+            isLoading = false
+            presenter.presentErrorState(.noInternetError)
+            presenter.presentLoading(false)
+            return
+        }
+
+        guard !results.isEmpty else {
+            isLoading = false
+            presenter.presentErrorState(.systemError)
+            presenter.presentLoading(false)
+            return
+        }
+
+        let dogImages = results
+            .sorted(by: {$0.0 < $1.0})
+            .compactMap { index, response, timestamp, error -> Dogs.FetchDogs.Response.DogImage? in
                 guard let response = response else { return nil }
                 return Dogs.FetchDogs.Response.DogImage(
                     imageURL: response.message,
@@ -66,40 +133,13 @@ class DogsInteractor: DogsBusinessLogic {
                 )
             }
 
-            presenter.presentDogs(response: Dogs.FetchDogs.Response(dogImages: dogImages, error: nil))
-            presenter.presentLoading(false)
-        }
+        isLoading = false
+        presenter.presentErrorState(.noError)
+        presenter.presentDogs(response: Dogs.FetchDogs.Response(dogImages: dogImages))
+        presenter.presentLoading(false)
     }
 
-    private func fetchDogsSequentially() {
-        presenter.presentLoading(true)
-
-        Task {
-            let now = Date()
-            let calendar = Calendar.current
-            let second = calendar.component(.second, from: now)
-            let lastDigit = second % 10
-            let delayNanoseconds: UInt64 = lastDigit < 5 ? 2_000_000_000 : 3_000_000_000
-
-            var dogImages: [Dogs.FetchDogs.Response.DogImage] = []
-
-            for i in 0..<3 {
-                if i > 0 {
-                    try? await Task.sleep(nanoseconds: delayNanoseconds)
-                }
-
-                let timestamp = Date()
-                if let response = try? await worker.fetchRandomDogImage() {
-                    dogImages.append(Dogs.FetchDogs.Response.DogImage(
-                        imageURL: response.message,
-                        timestamp: timestamp,
-                        index: i
-                    ))
-                }
-            }
-
-            presenter.presentDogs(response: Dogs.FetchDogs.Response(dogImages: dogImages, error: nil))
-            presenter.presentLoading(false)
-        }
+    func retryFetch() {
+        fetchDogs(loadType: currentLoadType)
     }
 }

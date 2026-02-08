@@ -11,19 +11,18 @@ import Alamofire
 // MARK: - Dogs Worker Protocol
 
 protocol DogsWorkerProtocol {
-    func fetchRandomDogImage() async throws -> DogAPIResponse
+    func fetchRandomDogImage() async throws -> DogAPIResponseModel
 }
 
 // MARK: - Dogs Worker
-
-class DogsWorker: DogsWorkerProtocol {
+final class DogsWorker: DogsWorkerProtocol {
     private let networkService: NetworkServiceProtocol
 
     init(networkService: NetworkServiceProtocol = NetworkService()) {
         self.networkService = networkService
     }
 
-    func fetchRandomDogImage() async throws -> DogAPIResponse {
+    func fetchRandomDogImage() async throws -> DogAPIResponseModel {
         return try await networkService.request(
             method: .get,
             url: Config.dogURL.appending(path: "api/breeds/image/random"),
