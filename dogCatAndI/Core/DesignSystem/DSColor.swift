@@ -33,24 +33,14 @@ struct DSColor {
     static var systemActionLink: IntegerLiteralType { 0x0088F1 }
 
     // gray
-    /// 0x050505
-    static var gray1: IntegerLiteralType { 0x050505 }
-    /// 0x282829
-    static var gray2: IntegerLiteralType { 0x282829 }
-    /// 0x3C3C3D
-    static var gray3: IntegerLiteralType { 0x3C3C3D }
-    /// 0x535354
-    static var gray4: IntegerLiteralType { 0x535354 }
     /// 0x6A6A6B
-    static var gray5: IntegerLiteralType { 0x6A6A6B }
+    static var gray1: IntegerLiteralType { 0x6A6A6B }
     /// 0x818182
-    static var gray6: IntegerLiteralType { 0x818182 }
-    /// 0x9A9A9C
-    static var gray7: IntegerLiteralType { 0x9A9A9C }
+    static var gray2: IntegerLiteralType { 0x818182 }
     /// 0xBBBBBD
-    static var gray8: IntegerLiteralType { 0xBBBBBD }
+    static var gray3: IntegerLiteralType { 0xBBBBBD }
     /// 0xD7D7D9
-    static var gray9: IntegerLiteralType { 0xD7D7D9 }
+    static var gray4: IntegerLiteralType { 0xD7D7D9 }
     /// 0xF2F2F2
-    static var gray10: IntegerLiteralType { 0xF2F2F2 }
+    static var gray5: IntegerLiteralType { 0xF2F2F2 }
 }

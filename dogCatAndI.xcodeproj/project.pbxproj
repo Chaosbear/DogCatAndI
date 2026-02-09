@@ -75,7 +75,6 @@
 		96FFC4932F38EAEE00A69B48 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */; };
 		96FFC4952F38F6A900A69B48 /* CatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4942F38F6A500A69B48 /* CatCardView.swift */; };
 		96FFC4982F38FEA200A69B48 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4972F38FE9E00A69B48 /* DividerView.swift */; };
-		96FFC49A2F39185D00A69B48 /* SwiftUITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */; };
 		96FFC49C2F3922C200A69B48 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC49B2F3922BC00A69B48 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,7 +156,6 @@
 		96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		96FFC4942F38F6A500A69B48 /* CatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCardView.swift; sourceTree = "<group>"; };
 		96FFC4972F38FE9E00A69B48 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
-		96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextExtension.swift; sourceTree = "<group>"; };
 		96FFC49B2F3922BC00A69B48 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				96FFC49B2F3922BC00A69B48 /* StringExtension.swift */,
-				96FFC4992F39185C00A69B48 /* SwiftUITextExtension.swift */,
 				966F38BD2F3880EB00E7F600 /* ColorExtension.swift */,
 				966F38BB2F38808800E7F600 /* UIDeviceExtension.swift */,
 				96A3B1072F36E4BD00B4EF9B /* FontExtension.swift */,
@@ -633,7 +630,6 @@
 				96FFC4952F38F6A900A69B48 /* CatCardView.swift in Sources */,
 				96A3B0FF2F36E13300B4EF9B /* TextStyler.swift in Sources */,
 				96A3B1042F36E2B600B4EF9B /* Utils.swift in Sources */,
-				96FFC49A2F39185D00A69B48 /* SwiftUITextExtension.swift in Sources */,
 				96A3B10A2F36E99A00B4EF9B /* AppConfig.swift in Sources */,
 				96A3B0FA2F36E03E00B4EF9B /* DSColor.swift in Sources */,
 				96A3B1062F36E3F700B4EF9B /* NetworkMonitor.swift in Sources */,

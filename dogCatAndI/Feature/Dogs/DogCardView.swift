@@ -54,9 +54,9 @@ struct DogCardView: View, Equatable {
         }
         .frameHorizontalExpand()
         .padding(12)
-        .background(Color(DSColor.gray10))
+        .background(Color(DSColor.gray5))
         .cornerRadius(12)
-        .shadow(color: Color(DSColor.gray8), radius: 2, x: 1, y: 1)
+        .shadow(color: Color(DSColor.gray3), radius: 2, x: 1, y: 1)
     }
 }
 
@@ -74,9 +74,9 @@ struct DogCardSkeletonView: View {
         .shimmering()
         .frameHorizontalExpand()
         .padding(12)
-        .background(Color(DSColor.gray10))
+        .background(Color(DSColor.gray5))
         .cornerRadius(12)
-        .shadow(color: Color(DSColor.gray8), radius: 2, x: 1, y: 1)
+        .shadow(color: Color(DSColor.gray3), radius: 2, x: 1, y: 1)
     }
 }
 

@@ -22,7 +22,7 @@ struct CatCardView: View, Equatable {
     )
     private let detailLabelTextStyle = TextStyler(
         font: DSFont.body3.font,
-        color: Color(DSColor.gray5)
+        color: Color(DSColor.gray1)
     )
     private let detailTextStyle = TextStyler(
         font: DSFont.body3.font,
@@ -56,7 +56,7 @@ struct CatCardView: View, Equatable {
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
-                    .foregroundStyle(Color(DSColor.gray5))
+                    .foregroundStyle(Color(DSColor.gray1))
                     .frame(width: 20, height: 20)
                     .rotationEffect(.degrees(isExpand ? -180 : 0), anchor: .center)
             }
@@ -113,7 +113,7 @@ struct CatCardSkeletonView: View {
                 .resizable()
                 .renderingMode(.template)
                 .scaledToFit()
-                .foregroundStyle(Color(DSColor.gray5))
+                .foregroundStyle(Color(DSColor.gray1))
                 .frame(width: 20, height: 20)
         }
         .padding(.vertical, 8)
