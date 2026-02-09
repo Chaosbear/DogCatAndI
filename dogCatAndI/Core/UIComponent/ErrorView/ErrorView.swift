@@ -50,11 +50,11 @@ struct ErrorView: View {
     // MARK: - Text Style
     private let titleTextStyle = TextStyler(
         font: DSFont.subTitle.font,
-        color: Color(DSColor.gray5)
+        color: Color(DSColor.gray1)
     )
     private let msgTextStyle = TextStyler(
         font: DSFont.body2.font,
-        color: Color(DSColor.gray5)
+        color: Color(DSColor.gray1)
     )
     private let btnTextStyle = TextStyler(
         font: DSFont.body2Bold.font,
@@ -100,7 +100,7 @@ struct ErrorView: View {
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
-                    .foregroundStyle(Color(DSColor.gray8))
+                    .foregroundStyle(Color(DSColor.gray3))
                     .frame(width: imageSize.width, height: imageSize.height)
                     .padding(.bottom, 12)
             }

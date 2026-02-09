@@ -9,7 +9,6 @@ import Foundation
 import OrderedCollections
 
 // MARK: - Cats Use Cases
-
 enum Cats {
     enum FetchBreeds {
         struct Request {
@@ -35,7 +34,6 @@ enum Cats {
 }
 
 // MARK: - Cat API Response
-
 struct CatBreedsAPIResponse {
     private(set) var currentPage: Int?
     private(set) var data: [CatBreed] = []

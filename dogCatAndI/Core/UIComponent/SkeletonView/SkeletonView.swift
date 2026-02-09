@@ -11,7 +11,7 @@ struct RoundedRectangleSkeletionView: View {
     private var color: Color
     private var radius: CGFloat
 
-    init(color: Color = Color(DSColor.gray6), radius: CGFloat = 8) {
+    init(color: Color = Color(DSColor.gray2), radius: CGFloat = 8) {
         self.color = color
         self.radius = radius
     }
@@ -25,7 +25,7 @@ struct RoundedRectangleSkeletionView: View {
 struct CircleSkeletionView: View {
     private var color: Color
 
-    init(color: Color = Color(DSColor.gray6)) {
+    init(color: Color = Color(DSColor.gray2)) {
         self.color = color
     }
 

@@ -26,7 +26,7 @@ struct MeView: View {
     )
     private let infoLabelTextStyle = TextStyler(
         font: DSFont.body1.font,
-        color: Color(DSColor.gray5)
+        color: Color(DSColor.gray1)
     )
     private let infoTextStyle = TextStyler(
         font: DSFont.body1.font,

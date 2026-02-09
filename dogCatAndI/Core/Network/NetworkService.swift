@@ -31,7 +31,6 @@ enum NetworkError: Error, LocalizedError {
 }
 
 // MARK: - Network Service Protocol
-
 protocol NetworkServiceProtocol {
     func request<T: Decodable>(
         method: HTTPMethod,
@@ -49,7 +48,6 @@ protocol NetworkServiceProtocol {
 }
 
 // MARK: - Network Service
-
 class NetworkService: NetworkServiceProtocol {
     // MARK: - Property
     static let shared = NetworkService()
