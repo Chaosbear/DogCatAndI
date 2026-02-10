@@ -72,6 +72,13 @@
 		96AF22A02F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF229D2F3655EA002C410D /* dogCatAndIUITestsLaunchTests.swift */; };
 		96AF22B92F365F0F002C410D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22B82F365F0F002C410D /* Alamofire */; };
 		96AF22BC2F365F30002C410D /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 96AF22BB2F365F30002C410D /* netfox */; };
+		96D756B92F3B66BA00ACD2FC /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756B82F3B66BA00ACD2FC /* RxBlocking */; };
+		96D756BB2F3B66BA00ACD2FC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756BA2F3B66BA00ACD2FC /* RxCocoa */; };
+		96D756BD2F3B66BA00ACD2FC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756BC2F3B66BA00ACD2FC /* RxRelay */; };
+		96D756BF2F3B66BA00ACD2FC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756BE2F3B66BA00ACD2FC /* RxSwift */; };
+		96D756C12F3B66BA00ACD2FC /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756C02F3B66BA00ACD2FC /* RxTest */; };
+		96D756C42F3B66ED00ACD2FC /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756C32F3B66ED00ACD2FC /* Differentiator */; };
+		96D756C62F3B66ED00ACD2FC /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 96D756C52F3B66ED00ACD2FC /* RxDataSources */; };
 		96FFC4932F38EAEE00A69B48 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4922F38EAEA00A69B48 /* SkeletonView.swift */; };
 		96FFC4952F38F6A900A69B48 /* CatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4942F38F6A500A69B48 /* CatCardView.swift */; };
 		96FFC4982F38FEA200A69B48 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FFC4972F38FE9E00A69B48 /* DividerView.swift */; };
@@ -164,17 +171,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D756BD2F3B66BA00ACD2FC /* RxRelay in Frameworks */,
 				96A3B1342F37009400B4EF9B /* OrderedCollections in Frameworks */,
 				96A3B1362F37009400B4EF9B /* TrailingElementsModule in Frameworks */,
 				96A3B1282F37009400B4EF9B /* BitCollections in Frameworks */,
 				96A3B1262F37009400B4EF9B /* BasicContainers in Frameworks */,
 				96A3B12A2F37009400B4EF9B /* Collections in Frameworks */,
+				96D756B92F3B66BA00ACD2FC /* RxBlocking in Frameworks */,
 				96A3B12E2F37009400B4EF9B /* DequeModule in Frameworks */,
 				96A3B1382F37009400B4EF9B /* _RopeModule in Frameworks */,
 				96A3B12C2F37009400B4EF9B /* ContainersPreview in Frameworks */,
 				96AF22BC2F365F30002C410D /* netfox in Frameworks */,
+				96D756C12F3B66BA00ACD2FC /* RxTest in Frameworks */,
+				96D756BB2F3B66BA00ACD2FC /* RxCocoa in Frameworks */,
 				96A3B1302F37009400B4EF9B /* HashTreeCollections in Frameworks */,
 				96A3B1322F37009400B4EF9B /* HeapModule in Frameworks */,
+				96D756BF2F3B66BA00ACD2FC /* RxSwift in Frameworks */,
+				96D756C42F3B66ED00ACD2FC /* Differentiator in Frameworks */,
+				96D756C62F3B66ED00ACD2FC /* RxDataSources in Frameworks */,
 				96AF22B92F365F0F002C410D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +506,13 @@
 				96A3B1332F37009400B4EF9B /* OrderedCollections */,
 				96A3B1352F37009400B4EF9B /* TrailingElementsModule */,
 				96A3B1372F37009400B4EF9B /* _RopeModule */,
+				96D756B82F3B66BA00ACD2FC /* RxBlocking */,
+				96D756BA2F3B66BA00ACD2FC /* RxCocoa */,
+				96D756BC2F3B66BA00ACD2FC /* RxRelay */,
+				96D756BE2F3B66BA00ACD2FC /* RxSwift */,
+				96D756C02F3B66BA00ACD2FC /* RxTest */,
+				96D756C32F3B66ED00ACD2FC /* Differentiator */,
+				96D756C52F3B66ED00ACD2FC /* RxDataSources */,
 			);
 			productName = dogCatAndI;
 			productReference = 966C7E692F35FBF500382491 /* dogCatAndI.app */;
@@ -573,6 +594,8 @@
 				96AF22B72F365F0F002C410D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				96AF22BA2F365F30002C410D /* XCRemoteSwiftPackageReference "netfox" */,
 				96A3B1242F37009400B4EF9B /* XCRemoteSwiftPackageReference "swift-collections" */,
+				96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */,
+				96D756C22F3B66ED00ACD2FC /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 966C7E6A2F35FBF500382491 /* Products */;
@@ -1629,6 +1652,22 @@
 				minimumVersion = 1.21.0;
 			};
 		};
+		96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.10.1;
+			};
+		};
+		96D756C22F3B66ED00ACD2FC /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1691,6 +1730,41 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96AF22BA2F365F30002C410D /* XCRemoteSwiftPackageReference "netfox" */;
 			productName = netfox;
+		};
+		96D756B82F3B66BA00ACD2FC /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		96D756BA2F3B66BA00ACD2FC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		96D756BC2F3B66BA00ACD2FC /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		96D756BE2F3B66BA00ACD2FC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		96D756C02F3B66BA00ACD2FC /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756B72F3B66BA00ACD2FC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		96D756C32F3B66ED00ACD2FC /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756C22F3B66ED00ACD2FC /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		96D756C52F3B66ED00ACD2FC /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96D756C22F3B66ED00ACD2FC /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
