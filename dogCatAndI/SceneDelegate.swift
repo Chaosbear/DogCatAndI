@@ -15,12 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-
-        // Embed SwiftUI RootView in UIHostingController
-        let rootView = RootView()
-        let hostingController = UIHostingController(rootView: rootView)
-
-        window.rootViewController = hostingController
+        window.rootViewController = RootViewTypeSelectionViewController()
         self.window = window
         window.makeKeyAndVisible()
     }

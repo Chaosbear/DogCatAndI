@@ -10,7 +10,8 @@ class MockNetworkService: NetworkServiceProtocol {
     func request<T: Decodable>(
         method: HTTPMethod,
         url: URL,
-        parameters: Parameters?
+        parameters: Parameters?,
+        cachePolicy: URLRequest.CachePolicy
     ) async throws -> T {
         fetchCallCount += 1
         if let error = mockError {
@@ -28,8 +29,14 @@ class MockNetworkService: NetworkServiceProtocol {
         parameters: Parameters?,
         encoding: ParameterEncoding,
         headers: [String: String],
+        cachePolicy: URLRequest.CachePolicy,
         timeout: Double
     ) async throws -> T {
-        try await request(method: method, url: url!, parameters: parameters)
+        try await request(
+            method: method,
+            url: url!,
+            parameters: parameters,
+            cachePolicy: cachePolicy
+        )
     }
 }
