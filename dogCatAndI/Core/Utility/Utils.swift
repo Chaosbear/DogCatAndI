@@ -9,22 +9,6 @@ import Foundation
 
 struct Utils {
     // MARK: - Data Converter
-    static func jsonStrToCodable<T: Codable>(
-        jsonStr: String,
-        type: T.Type,
-        decoder: JSONDecoder = JSONDecoder()
-    ) -> T? {
-        let data = Data(jsonStr.utf8)
-        let decoder = JSONDecoder()
-        var result: T?
-        do {
-            result = try decoder.decode(type, from: data)
-            return result
-        } catch {
-            return nil
-        }
-    }
-
     static func dataToCodable<T: Codable>(
         data: Data,
         type: T.Type,
@@ -32,12 +16,6 @@ struct Utils {
     ) throws -> T {
         let result = try decoder.decode(type, from: data)
         return result
-    }
-
-    static func codableToJsonStr(of model: Codable) throws -> String {
-        let jsonData = try JSONEncoder().encode(model)
-        let jsonString = String(data: jsonData, encoding: .utf8)!
-        return jsonString
     }
 
     // MARK: - Date Time Formatter
