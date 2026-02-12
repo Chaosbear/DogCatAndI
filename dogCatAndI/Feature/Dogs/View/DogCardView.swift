@@ -36,7 +36,7 @@ struct DogCardView: View, Equatable {
                     Image("image_placeholder")
                         .resizable()
                         .scaledToFill()
-                        .background(Color(.systemGray6))
+                        .background(Color(DSColor.gray4))
                 case .success(let image):
                     image
                         .resizable()

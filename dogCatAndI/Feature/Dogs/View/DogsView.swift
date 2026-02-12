@@ -165,6 +165,7 @@ struct DogsView: View {
         ErrorView(state: viewState.errorState) {
             interactor.fetchDogs(loadType: viewState.currentLoadType)
         }
+        .disabled(viewState.isLoading)
         .expandInScrollView()
         .background(Color(DSColor.primaryWhite))
     }

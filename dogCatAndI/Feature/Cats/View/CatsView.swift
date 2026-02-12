@@ -163,7 +163,9 @@ struct CatsView: View {
                 await interactor.fetchBreeds()
             }
         }
+        .disabled(viewState.isLoading)
         .expandInScrollView()
+        .background(Color(DSColor.primaryWhite))
     }
 
     @ViewBuilder
@@ -177,6 +179,7 @@ struct CatsView: View {
                 await interactor.fetchBreeds()
             }
         }
+        .disabled(viewState.isLoading)
         .frameHorizontalExpand(alignment: .center)
     }
 }

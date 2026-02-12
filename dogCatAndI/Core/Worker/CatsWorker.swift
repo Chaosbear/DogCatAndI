@@ -28,7 +28,8 @@ final class CatsWorker: CatsWorkerProtocol {
             parameters: [
                 "limit": 10,
                 "page": page
-            ]
+            ],
+            cachePolicy: .useProtocolCachePolicy
         )
     }
 }
