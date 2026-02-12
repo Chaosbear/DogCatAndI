@@ -21,18 +21,3 @@ struct HDividerView: View {
             .frame(height: height)
     }
 }
-
-struct VDividerView: View {
-    let color: Color
-    let width: CGFloat
-
-    init(color: Color = Color(DSColor.black), width: CGFloat = 1) {
-        self.color = color
-        self.width = width
-    }
-
-    var body: some View {
-        color
-            .frame(width: width)
-    }
-}
