@@ -22,16 +22,6 @@ struct DSColor {
     /// 0x2554A1
     static var secondaryBlue: IntegerLiteralType { 0x2554A1 }
 
-    // system
-    /// 0x30D158
-    static var systemSuccess: IntegerLiteralType { 0x30D158 }
-    /// 0xFF3B30
-    static var systemError: IntegerLiteralType { 0xFF3B30 }
-    /// 0xFFCC00
-    static var systemWarning: IntegerLiteralType { 0xFFCC00 }
-    /// 0x0088F1
-    static var systemActionLink: IntegerLiteralType { 0x0088F1 }
-
     // gray
     /// 0x6A6A6B
     static var gray1: IntegerLiteralType { 0x6A6A6B }
