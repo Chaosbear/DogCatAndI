@@ -35,7 +35,8 @@ protocol NetworkServiceProtocol {
     func request<T: Decodable>(
         method: HTTPMethod,
         url: URL,
-        parameters: Parameters?
+        parameters: Parameters?,
+        cachePolicy: URLRequest.CachePolicy
     ) async throws -> T
     func request<T: Decodable>(
         method: HTTPMethod,
@@ -43,6 +44,7 @@ protocol NetworkServiceProtocol {
         parameters: Parameters?,
         encoding: ParameterEncoding,
         headers: [String: String],
+        cachePolicy: URLRequest.CachePolicy,
         timeout: Double
     ) async throws -> T
 }
@@ -86,7 +88,8 @@ class NetworkService: NetworkServiceProtocol {
     func request<T: Decodable>(
         method: HTTPMethod,
         url: URL,
-        parameters: Parameters?
+        parameters: Parameters?,
+        cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData
     ) async throws -> T {
         try await request(
             method: method,
@@ -94,6 +97,7 @@ class NetworkService: NetworkServiceProtocol {
             parameters: parameters,
             encoding: URLEncoding.default,
             headers: [:],
+            cachePolicy: cachePolicy,
             timeout: 60
         )
     }
@@ -104,6 +108,7 @@ class NetworkService: NetworkServiceProtocol {
         parameters: Parameters?,
         encoding: ParameterEncoding,
         headers: [String: String],
+        cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData,
         timeout: Double
     ) async throws -> T {
         guard let url else { throw NetworkError.invalidURL }
@@ -115,7 +120,7 @@ class NetworkService: NetworkServiceProtocol {
             encoding: encoding,
             headers: HTTPHeaders(headers)
         ) {
-            $0.cachePolicy = .reloadIgnoringLocalCacheData
+            $0.cachePolicy = cachePolicy
             $0.timeoutInterval = timeout
         }
         .validate(statusCode: successStatusCodes())

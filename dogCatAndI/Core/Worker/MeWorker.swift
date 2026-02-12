@@ -25,7 +25,8 @@ final class MeWorker: MeWorkerProtocol {
         return try await networkService.request(
             method: .get,
             url: Config.meURL.appending(path: "api"),
-            parameters: nil
+            parameters: nil,
+            cachePolicy: .reloadIgnoringLocalCacheData
         )
     }
 }

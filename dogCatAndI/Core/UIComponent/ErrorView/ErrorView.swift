@@ -131,6 +131,7 @@ struct ErrorView: View {
                             .minimumScaleFactor(0.8)
                     } else {
                         ProgressView()
+                            .tint(Color(DSColor.primaryWhite))
                     }
                 }
                 .frame(width: 120, height: 44, alignment: .center)

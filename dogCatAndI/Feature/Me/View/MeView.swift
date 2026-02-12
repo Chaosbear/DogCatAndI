@@ -238,6 +238,7 @@ struct MeView: View {
         ErrorView(state: viewState.errorState) {
             interactor.fetchProfile()
         }
+        .disabled(viewState.isLoading)
         .expandInScrollView()
         .background(Color(DSColor.primaryWhite))
     }
