@@ -22,11 +22,15 @@ final class MeWorker: MeWorkerProtocol {
     }
 
     func fetchRandomUser() async throws -> RandomUserAPIResponse {
-        return try await networkService.request(
+        let response: RandomUserAPIResponse = try await networkService.request(
             method: .get,
             url: Config.meURL.appending(path: "api"),
             parameters: nil,
             cachePolicy: .reloadIgnoringLocalCacheData
         )
+        if response.results.isEmpty {
+            throw NetworkError.invalidResponse(error: nil, data: nil)
+        }
+        return response
     }
 }

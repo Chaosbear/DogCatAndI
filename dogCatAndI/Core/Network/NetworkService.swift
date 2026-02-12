@@ -12,7 +12,7 @@ import netfox
 // MARK: - Network Error
 enum NetworkError: Error, LocalizedError {
     case invalidURL
-    case invalidResponse(error: Error, data: Data)
+    case invalidResponse(error: Error?, data: Data?)
     case serverError(Int)
     case internetConnectionError
 
@@ -21,7 +21,7 @@ enum NetworkError: Error, LocalizedError {
         case .invalidURL:
             return "Invalid URL"
         case .invalidResponse(let error, _):
-            return "Decoding error: \(error.localizedDescription)"
+            return "Decoding error: \(error?.localizedDescription ?? "-")"
         case .serverError(let code):
             return "Server error with status code: \(code)"
         case .internetConnectionError:
