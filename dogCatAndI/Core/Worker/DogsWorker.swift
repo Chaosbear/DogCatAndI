@@ -25,7 +25,8 @@ final class DogsWorker: DogsWorkerProtocol {
         return try await networkService.request(
             method: .get,
             url: Config.dogURL.appending(path: "api/breeds/image/random"),
-            parameters: nil
+            parameters: nil,
+            cachePolicy: .reloadIgnoringLocalCacheData
         )
     }
 }
