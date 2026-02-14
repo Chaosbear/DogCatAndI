@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MeBusinessLogic: AnyObject {
+protocol MeBusinessLogic: AnyObject, Sendable {
     func fetchProfile()
 }
 

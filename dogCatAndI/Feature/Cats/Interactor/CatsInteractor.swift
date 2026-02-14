@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CatsBusinessLogic: AnyObject {
+protocol CatsBusinessLogic: AnyObject, Sendable {
     func fetchBreeds() async
     func refreshBreeds() async
 }

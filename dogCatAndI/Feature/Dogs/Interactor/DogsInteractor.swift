@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DogsBusinessLogic: AnyObject {
+protocol DogsBusinessLogic: AnyObject, Sendable {
     func fetchDogs(loadType: Dogs.FetchDogs.Request.LoadType)
 }
 

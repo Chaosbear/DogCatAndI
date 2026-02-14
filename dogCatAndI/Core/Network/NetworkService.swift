@@ -85,12 +85,12 @@ class NetworkService: NetworkServiceProtocol {
     }
 
     // MARK: - Request
-    func request<T: Decodable>(
+    func request<T>(
         method: HTTPMethod,
         url: URL,
         parameters: Parameters?,
         cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData
-    ) async throws -> T {
+    ) async throws -> T where T: Decodable, T: Sendable {
         try await request(
             method: method,
             url: url,
@@ -102,7 +102,7 @@ class NetworkService: NetworkServiceProtocol {
         )
     }
 
-    func request<T: Decodable>(
+    func request<T>(
         method: HTTPMethod,
         url: URL?,
         parameters: Parameters?,
@@ -110,7 +110,7 @@ class NetworkService: NetworkServiceProtocol {
         headers: [String: String],
         cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData,
         timeout: Double
-    ) async throws -> T {
+    ) async throws -> T where T: Decodable, T: Sendable {
         guard let url else { throw NetworkError.invalidURL }
 
         let dataResponse = await session.request(
