@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 // MARK: - Me Worker Protocol
-protocol MeWorkerProtocol {
+protocol MeWorkerProtocol: Sendable {
     func fetchRandomUser() async throws -> RandomUserAPIResponse
 }
 

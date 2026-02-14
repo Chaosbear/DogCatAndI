@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 // MARK: - Dogs Worker Protocol
-protocol DogsWorkerProtocol {
+protocol DogsWorkerProtocol: Sendable {
     func fetchRandomDogImage() async throws -> DogAPIResponseModel
 }
 
