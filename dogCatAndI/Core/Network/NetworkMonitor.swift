@@ -45,13 +45,19 @@ class NWMonitorService: NWMonitorServiceProtocol {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
             guard let self else { return }
-            self.isConnected = path.status == .satisfied
-            (self.connectionType, self.connectionTypeText) = self.getConnectionType(path)
+            Task {
+                await self.updateConnectionStatus(path)
+            }
         }
     }
 
     func stopMonitoring() {
         monitor.cancel()
+    }
+
+    private func updateConnectionStatus(_ path: NWPath) {
+        isConnected = path.status == .satisfied
+        (connectionType, connectionTypeText) = self.getConnectionType(path)
     }
 
     private func getConnectionType(_ path: NWPath) -> (NWInterface.InterfaceType?, String) {

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 // MARK: - Cats Worker Protocol
-protocol CatsWorkerProtocol {
+protocol CatsWorkerProtocol: Sendable {
     func fetchCatBreeds(page: Int) async throws -> CatBreedsAPIResponse
 }
 

@@ -36,11 +36,13 @@ struct DogCardView: View, Equatable {
                     Image("image_placeholder")
                         .resizable()
                         .scaledToFill()
+                        .frame(height: 120)
                         .background(Color(DSColor.gray4))
                 case .success(let image):
                     image
                         .resizable()
                         .scaledToFit()
+                        .frame(height: 120)
                 @unknown default:
                     EmptyView()
                 }
